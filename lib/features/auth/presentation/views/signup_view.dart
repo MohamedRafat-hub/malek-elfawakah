@@ -1,0 +1,35 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruit_hub/core/services/firebase_auth_service.dart';
+import 'package:fruit_hub/core/services/git_it_service.dart';
+import 'package:fruit_hub/core/utils/app_colors.dart';
+import 'package:fruit_hub/features/auth/data/repos/auth_repo_impl.dart';
+import 'package:fruit_hub/features/auth/domain/repos/auth_repo.dart';
+import 'package:fruit_hub/features/auth/presentation/cubits/signup_cubit/signup_cubit.dart';
+import 'package:fruit_hub/features/auth/presentation/views/widgets/signup_view_body.dart';
+import 'package:fruit_hub/features/auth/presentation/views/widgets/signup_view_body_bloc_consumer.dart';
+import 'package:fruit_hub/features/home/presentation/views/home_view.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+
+import 'widgets/build_app_bar.dart';
+
+class SignupView extends StatelessWidget {
+  const SignupView({super.key});
+
+  static const String routeName = 'SignupView';
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => SignupCubit(getIt.get<AuthRepo>()),
+      child: Scaffold(
+        appBar: buildAppBar(
+          title: 'حساب جديد',
+        ),
+        body: SignUpBlocConsumer(),
+      ),
+    );
+  }
+}
+
+

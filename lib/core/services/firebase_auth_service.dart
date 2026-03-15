@@ -1,0 +1,98 @@
+import 'dart:developer';
+
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:fruit_hub/core/errors/exceptions.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
+class FirebaseAuthService {
+  Future<void> deleteUser() async {
+    await FirebaseAuth.instance.currentUser?.delete();
+  }
+
+  Future<User> createUserWithEmailAndPassword(
+      {required String name,
+      required String email,
+      required String password}) async {
+    try {
+      final credential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return credential.user!;
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        throw CustomExceptions(
+            'الرقم السري ضعيف جدا.');
+      } else if (e.code == 'email-already-in-use') {
+        throw CustomExceptions(
+            'هذا البريد الإلكتروني مستخدم بالفعل.');
+      } else if (e.code == 'network-request-failed') {
+        throw CustomExceptions(
+            'تأكد من اتصالك بالإنترنت وحاول مرة أخرى.');
+      } else {
+        throw CustomExceptions(
+            'لم يتم إنشاء الحساب. يرجى المحاولة مرة أخرى.');
+      }
+    } catch (e) {
+      throw CustomExceptions(
+          'لم يتم إنشاء الحساب. يرجى المحاولة مرة أخرى.');
+    }
+  }
+
+  Future<User> signInWithEmailAndPassword(
+      {required String email, required String password}) async {
+    try {
+      final credential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+      return credential.user!;
+    } on FirebaseAuthException catch (e) {
+      log('???????????????????????????login error ${e.code}');
+      if (e.code == 'user-not-found') {
+        throw CustomExceptions('البريد الإلكتروني غير موجود.');
+      } else if (e.code == 'wrong-password') {
+        throw CustomExceptions('الرقم السري غير صحيح.');
+      } else if (e.code == 'network-request-failed') {
+        throw CustomExceptions('تأكد من اتصالك بالإنترنت وحاول مرة أخرى.');
+      } else {
+        throw CustomExceptions(
+            'لم يتم تسجيل الدخول. برجاء التأكد من صحة البريد الالكتروني والرقم السري');
+      }
+    } catch (e) {
+      log('????????? login catch ${e.toString()}');
+      throw CustomExceptions('لم يتم تسجيل الدخول. يرجى المحاولة مرة أخرى.');
+    }
+  }
+
+  Future<User> signInWithGoogle() async {
+    final GoogleSignInAccount? googleUser =
+        await GoogleSignIn().signIn(); // Trigger the authentication flow
+
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
+
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+
+    return (await (FirebaseAuth.instance.signInWithCredential(credential)))
+        .user!;
+  }
+
+  Future<User> signInWithFacebook() async {
+    // Trigger the sign-in flow
+    final LoginResult loginResult = await FacebookAuth.instance.login();
+
+    // Create a credential from the access token
+
+    final OAuthCredential facebookAuthCredential =
+        FacebookAuthProvider.credential(loginResult.accessToken!.tokenString);
+
+    // Once signed in, return the UserCredential
+    return (await FirebaseAuth.instance
+            .signInWithCredential(facebookAuthCredential))
+        .user!;
+  }
+}

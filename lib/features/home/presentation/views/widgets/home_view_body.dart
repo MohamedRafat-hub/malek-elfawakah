@@ -15,54 +15,43 @@ class HomeViewBody extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
-            child: CustomAppbarWidget(),
-          ),
-          SliverToBoxAdapter(
-            child: Gap(16),
-          ),
-          SliverToBoxAdapter(
-            child: SearchTextField(),
-          ),
-          SliverToBoxAdapter(
-            child: Gap(16),
-          ),
-          SliverToBoxAdapter(
-            child: SizedBox(height: 180, child: HomeFeaturedList()),
-          ),
-          SliverToBoxAdapter(
-            child: Gap(16),
-          ),
+            child: Column(
+              spacing: 16,
+              children: [
+                CustomAppbarWidget(),
+                SearchTextField(),
+                SizedBox(height: 180, child: HomeFeaturedList()),
+                Row(
+                  children: [
+                    Text(
+                      'الأكثر مبيعًا',
+                      textAlign: TextAlign.right,
+                      style: TextStyle(
+                        color: const Color(0xFF0C0D0D) /* Grayscale-950 */,
+                        fontSize: 16,
+                        fontFamily: 'Cairo',
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
 
-         SliverToBoxAdapter(
-           child: Row(
-             children: [
-               Text(
-                 'الأكثر مبيعًا',
-                 textAlign: TextAlign.right,
-                 style: TextStyle(
-                   color: const Color(0xFF0C0D0D) /* Grayscale-950 */,
-                   fontSize: 16,
-                   fontFamily: 'Cairo',
-                   fontWeight: FontWeight.w700,
-                 ),
-               ),
-           
-               Spacer(),
-           
-               Text(
-                 'المزيد',
-                 textAlign: TextAlign.center,
-                 style: TextStyle(
-                   color: const Color(0xFF949D9E),
-                   fontSize: 13,
-                   fontFamily: 'Cairo',
-                   fontWeight: FontWeight.w400,
-                   height: 1.60,
-                 ),
-               )
-             ],
-           ),
-         ),
+                    Spacer(),
+
+                    Text(
+                      'المزيد',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: const Color(0xFF949D9E),
+                        fontSize: 20,
+                        fontFamily: 'Cairo',
+                        fontWeight: FontWeight.w400,
+                        height: 1.60,
+                      ),
+                    )
+                  ],
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

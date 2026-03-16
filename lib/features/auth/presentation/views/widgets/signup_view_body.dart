@@ -37,13 +37,13 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
               /// fields
               CustomTextFormField(
                   onSaved: (value) {
-                    name = value!;
+                    name = value!.trim();
                   },
                   hintText: 'الاسم كامل',
                   keyboardType: TextInputType.name),
               CustomTextFormField(
                   onSaved: (value) {
-                    email = value!;
+                    email = value!.trim();
                   },
                   hintText: 'البريد الإلكتروني',
                   keyboardType: TextInputType.emailAddress),
@@ -52,7 +52,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
               CustomTextFormField(
                 obscureText: !isVisiblePassword,
                 onSaved: (value) {
-                  password = value!;
+                  password = value!.trim();
                 },
                 hintText: 'كلمة المرور',
                 keyboardType: TextInputType.visiblePassword,

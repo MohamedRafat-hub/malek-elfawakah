@@ -41,7 +41,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             Gap(24),
             CustomTextFormField(
               onSaved: (value) {
-                email = value!;
+                email = value!.trim();
               },
               hintText: 'البريد الالكتروني',
               keyboardType: TextInputType.emailAddress,
@@ -49,7 +49,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             Gap(16),
             CustomTextFormField(
               onSaved: (value) {
-                password = value!;
+                password = value!.trim();
               },
               obscureText: obscureText,
               hintText: 'كلمة المرور',

@@ -60,6 +60,7 @@ class Assets {
   static const String signupCubitSignupState = 'lib/features/auth/presentation/cubits/signup_cubit/signup_state.dart';
   static const String utilsAppColors = 'lib/core/utils/app_colors.dart';
   static const String utilsBackendEndpoint = 'lib/core/utils/backend_endpoint.dart';
+  static const String viewsBestSellingView = 'lib/features/best_selling_fruits/presentation/views/best_selling_view.dart';
   static const String viewsHomeView = 'lib/features/home/presentation/views/home_view.dart';
   static const String viewsLoginView = 'lib/features/auth/presentation/views/login_view.dart';
   static const String viewsOnboardingView = 'lib/features/onboarding/presentation/views/onboarding_view.dart';
@@ -72,6 +73,7 @@ class Assets {
   static const String widgetsCustomAppbarWidget = 'lib/features/home/presentation/views/widgets/custom_appbar_widget.dart';
   static const String widgetsCustomBottomNavbar = 'lib/features/home/presentation/views/widgets/custom_bottom_navbar.dart';
   static const String widgetsCustomMaterialButton = 'lib/core/widgets/custom_material_button.dart';
+  static const String widgetsCustomNotificationWidget = 'lib/features/home/presentation/views/widgets/custom_notification_widget.dart';
   static const String widgetsCustomText = 'lib/core/widgets/custom_text.dart';
   static const String widgetsCustomTextFormField = 'lib/features/auth/presentation/views/widgets/custom_text_form_field.dart';
   static const String widgetsFruitItem = 'lib/features/home/presentation/views/widgets/fruit_item.dart';

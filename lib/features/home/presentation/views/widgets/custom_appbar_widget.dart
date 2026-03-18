@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'custom_notification_widget.dart';
+
 class CustomAppbarWidget extends StatelessWidget {
   const CustomAppbarWidget({super.key});
 
@@ -28,10 +30,8 @@ class CustomAppbarWidget extends StatelessWidget {
           fontWeight: FontWeight.w700,
         ),
       ),
-      trailing: Icon(
-        Icons.notifications_outlined,
-        color: const Color(0xFF2D9F5D),
-      ),
+      trailing: CustomNotificationWidget(),
     );
   }
 }
+

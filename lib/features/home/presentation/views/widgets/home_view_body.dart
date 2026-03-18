@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fruit_hub/features/best_selling_fruits/presentation/views/best_selling_view.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/search_text_field.dart';
 import 'package:gap/gap.dart';
 import 'best_selling_gridview.dart';
@@ -27,27 +28,28 @@ class HomeViewBody extends StatelessWidget {
                 SearchTextField(),
                 Gap(6),
                 SizedBox(height: 180, child: HomeFeaturedList()),
-                Row(
-                  children: [
-                    Text(
-                      'الأكثر مبيعًا',
-                      style: TextStyle(
-                        color: Color(0xFF0C0D0D),
-                        fontSize: 16,
-                        fontFamily: 'Cairo',
-                        fontWeight: FontWeight.w700,
+                GestureDetector(
+                  onTap: (){
+                    Navigator.pushNamed(context, BestSellingView.routeName);
+                  },
+                  child: Row(
+                    children: [
+                      BestSellerTitle(),
+                      Spacer(),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 12),
+                        child: Text(
+                          'المزيد',
+                          style: TextStyle(
+                            color: Color(0xFF949D9E),
+                            fontSize: 20,
+                            fontFamily: 'Cairo',
+                            fontWeight: FontWeight.w700
+                          ),
+                        ),
                       ),
-                    ),
-                    Spacer(),
-                    Text(
-                      'المزيد',
-                      style: TextStyle(
-                        color: Color(0xFF949D9E),
-                        fontSize: 20,
-                        fontFamily: 'Cairo',
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 Gap(5),
               ],

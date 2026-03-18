@@ -2,6 +2,7 @@
 class Assets {
   Assets._();
 
+  static const String entitiesBottomNavbarEntity = 'lib/features/home/domain/entities/bottom_navbar_entity.dart';
   static const String entitiesUserEntity = 'lib/features/auth/domain/entities/user_entity.dart';
   static const String errorsExceptions = 'lib/core/errors/exceptions.dart';
   static const String errorsFailure = 'lib/core/errors/failure.dart';
@@ -11,17 +12,17 @@ class Assets {
   static const String iconsAddIcon = 'assets/icons/add_icon.svg';
   static const String iconsAppIcon = 'assets/icons/app_icon.png';
   static const String iconsAppleIcon = 'assets/icons/apple_icon.svg';
-  static const String iconsCartBoldIcon = 'assets/icons/cart_bold_icon.svg';
+  static const String iconsCartActiveIcon = 'assets/icons/cart_active_icon.svg';
   static const String iconsCartIcon = 'assets/icons/cart_icon.svg';
   static const String iconsFacebookIcon = 'assets/icons/facebook_icon.svg';
   static const String iconsFilteringIcon = 'assets/icons/filtering_icon.svg';
   static const String iconsGoogleIcon = 'assets/icons/google_icon.svg';
-  static const String iconsHomeBoldIcon = 'assets/icons/home_bold_icon.svg';
+  static const String iconsHomeActiveIcon = 'assets/icons/home_active_icon.svg';
   static const String iconsHomeIcon = 'assets/icons/home_icon.svg';
-  static const String iconsProductsBoldIcon = 'assets/icons/products_bold_icon.svg';
+  static const String iconsProductsActiveIcon = 'assets/icons/products_active_icon.svg';
   static const String iconsProductsIcon = 'assets/icons/products_icon.svg';
   static const String iconsSearchIcon = 'assets/icons/search_icon.svg';
-  static const String iconsUserBoldIcon = 'assets/icons/user_bold_icon.svg';
+  static const String iconsUserActiveIcon = 'assets/icons/user_active_icon.svg';
   static const String iconsUserIcon = 'assets/icons/user_icon.svg';
   static const String imagesFeaturedItemBackground = 'assets/images/featured_item_background.svg';
   static const String imagesLogo = 'assets/images/logo.svg';
@@ -64,9 +65,12 @@ class Assets {
   static const String viewsOnboardingView = 'lib/features/onboarding/presentation/views/onboarding_view.dart';
   static const String viewsSignupView = 'lib/features/auth/presentation/views/signup_view.dart';
   static const String viewsSplahView = 'lib/features/splash/presentation/views/splah_view.dart';
+  static const String widgetsActiveItem = 'lib/features/home/presentation/views/widgets/active_item.dart';
   static const String widgetsBestSellingGridview = 'lib/features/home/presentation/views/widgets/best_selling_gridview.dart';
+  static const String widgetsBottomNavbarItem = 'lib/features/home/presentation/views/widgets/bottom_navbar_item.dart';
   static const String widgetsBuildAppBar = 'lib/features/auth/presentation/views/widgets/build_app_bar.dart';
   static const String widgetsCustomAppbarWidget = 'lib/features/home/presentation/views/widgets/custom_appbar_widget.dart';
+  static const String widgetsCustomBottomNavbar = 'lib/features/home/presentation/views/widgets/custom_bottom_navbar.dart';
   static const String widgetsCustomMaterialButton = 'lib/core/widgets/custom_material_button.dart';
   static const String widgetsCustomText = 'lib/core/widgets/custom_text.dart';
   static const String widgetsCustomTextFormField = 'lib/features/auth/presentation/views/widgets/custom_text_form_field.dart';
@@ -74,6 +78,7 @@ class Assets {
   static const String widgetsHomeFeaturedItem = 'lib/features/home/presentation/views/widgets/home_featured_item.dart';
   static const String widgetsHomeFeaturedList = 'lib/features/home/presentation/views/widgets/home_featured_list.dart';
   static const String widgetsHomeViewBody = 'lib/features/home/presentation/views/widgets/home_view_body.dart';
+  static const String widgetsInactiveItem = 'lib/features/home/presentation/views/widgets/inactive_item.dart';
   static const String widgetsLoginViewBody = 'lib/features/auth/presentation/views/widgets/login_view_body.dart';
   static const String widgetsLoginViewBodyBlocConsumer = 'lib/features/auth/presentation/views/widgets/login_view_body_bloc_consumer.dart';
   static const String widgetsOnBoardingPageView = 'lib/features/onboarding/presentation/views/widgets/on_boarding_page_view.dart';

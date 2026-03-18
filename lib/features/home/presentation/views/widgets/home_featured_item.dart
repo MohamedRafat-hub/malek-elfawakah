@@ -45,9 +45,9 @@ class HomeFeaturedItem extends StatelessWidget {
                       'عروض العيد',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 13,
+                        fontSize: 16,
                         fontFamily: 'Cairo',
-                        fontWeight: FontWeight.w400,
+                        fontWeight: FontWeight.w600,
                         height: 1.60,
                       ),
                     ),
@@ -56,7 +56,7 @@ class HomeFeaturedItem extends StatelessWidget {
                     'خصم 25%',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 19,
+                      fontSize: 20,
                       fontFamily: 'Cairo',
                       fontWeight: FontWeight.w700,
                     ),

@@ -8,7 +8,6 @@ import 'package:fruit_hub/core/services/git_it_service.dart';
 import 'package:fruit_hub/core/services/shared_prefrences_singelton.dart';
 import 'package:fruit_hub/core/utils/app_colors.dart';
 import 'package:fruit_hub/features/best_selling_fruits/presentation/views/best_selling_view.dart';
-import 'package:fruit_hub/features/home/presentation/views/home_view.dart';
 import 'package:fruit_hub/features/splash/presentation/views/splah_view.dart';
 
 import 'firebase_options.dart';
@@ -49,7 +48,7 @@ class FruitsHub extends StatelessWidget {
       },
       supportedLocales: S.delegate.supportedLocales,
       onGenerateRoute: onGenerateRoute,
-      initialRoute: HomeView.routeName,
+      initialRoute: SplashView.routeName,
     );
   }
 }

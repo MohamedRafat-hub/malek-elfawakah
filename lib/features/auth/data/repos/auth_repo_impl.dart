@@ -32,7 +32,7 @@ class AuthRepoImpl extends AuthRepo {
       await addUserData(user: userEntity);
       return right(userEntity);
     } on CustomExceptions catch (e) {
-      return left(ServerFailure(e.errormessage));
+      return left(ServerFailure(e.errorMessage));
     } catch (e) {
       if (user != null) {
         await firebaseAuthService.deleteUser();
@@ -116,7 +116,7 @@ class AuthRepoImpl extends AuthRepo {
   @override
   Future<void> addUserData({required UserEntity user}) async {
     await databaseService.addData(
-        path: BackendEndpoint.addUserData, data: user.toMap(), uid: user.uid);
+        path: BackendEndpoint.addUserData, data: UserModel.fromUserEntity(user).toMap(), uid: user.uid);
   }
 
   @override

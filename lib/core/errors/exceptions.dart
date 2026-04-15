@@ -1,11 +1,11 @@
 class CustomExceptions implements Exception
 {
-   final String errormessage;
+   final String errorMessage;
 
-  CustomExceptions(this.errormessage);
+  CustomExceptions(this.errorMessage);
 
   @override
   String toString() {
-    return errormessage;
+    return errorMessage;
   }
 }

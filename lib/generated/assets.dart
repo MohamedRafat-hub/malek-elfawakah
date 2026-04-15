@@ -3,6 +3,8 @@ class Assets {
   Assets._();
 
   static const String entitiesBottomNavbarEntity = 'lib/features/home/domain/entities/bottom_navbar_entity.dart';
+  static const String entitiesProductEntity = 'lib/core/entities/product_entity.dart';
+  static const String entitiesReviewEntity = 'lib/core/entities/review_entity.dart';
   static const String entitiesUserEntity = 'lib/features/auth/domain/entities/user_entity.dart';
   static const String errorsExceptions = 'lib/core/errors/exceptions.dart';
   static const String errorsFailure = 'lib/core/errors/failure.dart';
@@ -47,9 +49,12 @@ class Assets {
   static const String libMain = 'lib/main.dart';
   static const String loginCubitLoginCubit = 'lib/features/auth/presentation/cubits/login_cubit/login_cubit.dart';
   static const String loginCubitLoginState = 'lib/features/auth/presentation/cubits/login_cubit/login_state.dart';
+  static const String modelsProductModel = 'lib/core/models/product_model.dart';
+  static const String modelsReviewModel = 'lib/core/models/review_model.dart';
   static const String modelsUserModel = 'lib/features/auth/data/models/user_model.dart';
   static const String reposAuthRepo = 'lib/features/auth/domain/repos/auth_repo.dart';
   static const String reposAuthRepoImpl = 'lib/features/auth/data/repos/auth_repo_impl.dart';
+  static const String reposProductRepo = 'lib/core/repos/product_repo.dart';
   static const String servicesCustomBlocObserver = 'lib/core/services/custom_bloc_observer.dart';
   static const String servicesDatabaseService = 'lib/core/services/database_service.dart';
   static const String servicesFirebaseAuthService = 'lib/core/services/firebase_auth_service.dart';

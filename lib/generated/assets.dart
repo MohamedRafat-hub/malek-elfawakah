@@ -52,6 +52,8 @@ class Assets {
   static const String modelsProductModel = 'lib/core/models/product_model.dart';
   static const String modelsReviewModel = 'lib/core/models/review_model.dart';
   static const String modelsUserModel = 'lib/features/auth/data/models/user_model.dart';
+  static const String productsCubitProductsCubit = 'lib/core/cubits/products_cubit/products_cubit.dart';
+  static const String productsCubitProductsState = 'lib/core/cubits/products_cubit/products_state.dart';
   static const String reposAuthRepo = 'lib/features/auth/domain/repos/auth_repo.dart';
   static const String reposAuthRepoImpl = 'lib/features/auth/data/repos/auth_repo_impl.dart';
   static const String reposProductRepo = 'lib/core/repos/product_repo.dart';

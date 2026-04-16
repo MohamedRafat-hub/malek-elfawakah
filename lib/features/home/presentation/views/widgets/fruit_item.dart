@@ -1,11 +1,16 @@
+
+
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fruit_hub/core/entities/product_entity.dart';
 import 'package:gap/gap.dart';
 
 class FruitItem extends StatelessWidget {
-  const FruitItem({super.key});
-
+  const FruitItem({super.key, required this.productEntity});
+  final ProductEntity productEntity;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,12 +24,14 @@ class FruitItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             GestureDetector(
-                onTap: (){},
+                onTap: (){
+                  log('${productEntity.imageUrl}');
+                },
                 child: Icon(CupertinoIcons.heart)),
-            Center(child: Image.asset('assets/images/watermelon1x.png')),
+            Center(child: Image.network('${productEntity.imageUrl}')),
             Gap(10),
             Text(
-              'بطيخ',
+              productEntity.name,
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 16,
@@ -36,7 +43,7 @@ class FruitItem extends StatelessWidget {
                   TextSpan(
                     children: [
                       TextSpan(
-                        text: '20جنية ',
+                        text: '${productEntity.price}',
                         style: TextStyle(
                           color: const Color(0xFFF4A91F) /* Orange-500 */,
                           fontSize: 13,

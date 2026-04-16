@@ -52,6 +52,7 @@ dependencies:
   cloud_firestore: ^6.1.2
   flutter_native_splash: ^2.4.7
   svg_image_provider: ^0.1.1
+  skeletonizer: ^2.1.3
 
 
 

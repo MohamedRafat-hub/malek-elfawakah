@@ -10,6 +10,8 @@ class Assets {
   static const String errorsFailure = 'lib/core/errors/failure.dart';
   static const String generatedAssets = 'lib/generated/assets.dart';
   static const String generatedL10n = 'lib/generated/l10n.dart';
+  static const String helperFunctionsGetAverageRating = 'lib/core/helper_functions/get_average_rating.dart';
+  static const String helperFunctionsGetDummyProducts = 'lib/core/helper_functions/get_dummy_products.dart';
   static const String helperFunctionsOnGenerateRoute = 'lib/core/helper_functions/on_generate_route.dart';
   static const String iconsAddIcon = 'assets/icons/add_icon.svg';
   static const String iconsAppIcon = 'assets/icons/app_icon.png';
@@ -76,12 +78,14 @@ class Assets {
   static const String viewsSplahView = 'lib/features/splash/presentation/views/splah_view.dart';
   static const String widgetsActiveItem = 'lib/features/home/presentation/views/widgets/active_item.dart';
   static const String widgetsBestSellerTitle = 'lib/features/best_selling_fruits/presentation/views/widgets/best_seller_title.dart';
+  static const String widgetsBestSellingGridViewBlocBuilder = 'lib/features/home/presentation/views/widgets/best_selling_grid_view_bloc_builder.dart';
   static const String widgetsBestSellingGridview = 'lib/features/home/presentation/views/widgets/best_selling_gridview.dart';
   static const String widgetsBestSellingViewBody = 'lib/features/best_selling_fruits/presentation/views/widgets/best_selling_view_body.dart';
   static const String widgetsBottomNavbarItem = 'lib/features/home/presentation/views/widgets/bottom_navbar_item.dart';
   static const String widgetsBuildAppBar = 'lib/features/auth/presentation/views/widgets/build_app_bar.dart';
   static const String widgetsCustomAppbarWidget = 'lib/features/home/presentation/views/widgets/custom_appbar_widget.dart';
   static const String widgetsCustomBottomNavbar = 'lib/features/home/presentation/views/widgets/custom_bottom_navbar.dart';
+  static const String widgetsCustomErrorMessage = 'lib/core/widgets/custom_error_message.dart';
   static const String widgetsCustomMaterialButton = 'lib/core/widgets/custom_material_button.dart';
   static const String widgetsCustomNotificationWidget = 'lib/features/home/presentation/views/widgets/custom_notification_widget.dart';
   static const String widgetsCustomText = 'lib/core/widgets/custom_text.dart';

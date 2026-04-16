@@ -27,7 +27,9 @@ class BestSellingViewBody extends StatelessWidget {
               ],
             ),
           ),
-          BestSellingGridView(),
+          BestSellingGridView(
+             products: [],
+          ),
         ],
       ),
     );

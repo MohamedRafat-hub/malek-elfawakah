@@ -6,6 +6,7 @@ import 'package:gap/gap.dart';
 
 import '../../../../best_selling_fruits/presentation/views/best_selling_view.dart';
 import '../../../../best_selling_fruits/presentation/views/widgets/best_seller_title.dart';
+import 'best_selling_grid_view_bloc_builder.dart';
 import 'best_selling_gridview.dart';
 import 'custom_appbar_widget.dart';
 import 'home_featured_list.dart';
@@ -25,6 +26,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
     context.read<ProductsCubit>().getBestSellingProducts();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -40,7 +42,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                 Gap(6),
                 SizedBox(height: 180, child: HomeFeaturedList()),
                 GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     Navigator.pushNamed(context, BestSellingView.routeName);
                   },
                   child: Row(
@@ -66,9 +68,10 @@ class _HomeViewBodyState extends State<HomeViewBody> {
               ],
             ),
           ),
-          BestSellingGridView(),
+          BestSellingGridViewBlocBuilder(),
         ],
       ),
     );
   }
 }
+

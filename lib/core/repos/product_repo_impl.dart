@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:fruit_hub/core/entities/product_entity.dart';
 import 'package:fruit_hub/core/errors/failure.dart';
@@ -26,7 +28,8 @@ class ProductRepoImpl implements ProductRepo {
           productsList.map((e) => e.toEntity()).toList();
       return right(products);
     } catch (e) {
-      return left(ServerFailure('Failed to get products $e'));
+      log('error message is $e');
+      return left(ServerFailure('Failed to get products'));
     }
   }
 
@@ -42,7 +45,8 @@ class ProductRepoImpl implements ProductRepo {
           productsList.map((e) => e.toEntity()).toList() as List<ProductEntity>;
       return right(productsEntity);
     } catch (e) {
-      return left(ServerFailure('Failed to fetch products $e'));
+      log('error message is $e');
+      return left(ServerFailure('Failed to fetch products'));
     }
   }
 }

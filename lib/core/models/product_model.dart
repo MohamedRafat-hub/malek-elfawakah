@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:fruit_hub/core/models/review_model.dart';
 
 import '../entities/product_entity.dart';
+import '../helper_functions/get_average_rating.dart';
 
 class ProductModel {
   final String name;
@@ -56,17 +57,18 @@ class ProductModel {
 
   ProductEntity toEntity() {
     return ProductEntity(
-        name: name,
-        price: price,
-        code: code,
-        description: description,
-        isFeatured: isFeatured,
-        image: image,
-        expirationMonths: expirationMonths,
-        numberOfCalories: numberOfCalories,
-        unitAmount: unitAmount,
-        isOrganic: isOrganic,
-        reviews: reviews.map((review) => review.toEntity()).toList(),);
+      name: name,
+      price: price,
+      code: code,
+      description: description,
+      isFeatured: isFeatured,
+      expirationMonths: expirationMonths,
+      numberOfCalories: numberOfCalories,
+      unitAmount: unitAmount,
+      isOrganic: isOrganic,
+      imageUrl: imageUrl,
+      reviews: reviews.map((review) => review.toEntity()).toList(),
+    );
   }
 
   Map<String, dynamic> toMap() {

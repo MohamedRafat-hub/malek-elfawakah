@@ -55,6 +55,7 @@ class Assets {
   static const String reposAuthRepo = 'lib/features/auth/domain/repos/auth_repo.dart';
   static const String reposAuthRepoImpl = 'lib/features/auth/data/repos/auth_repo_impl.dart';
   static const String reposProductRepo = 'lib/core/repos/product_repo.dart';
+  static const String reposProductRepoImpl = 'lib/core/repos/product_repo_impl.dart';
   static const String servicesCustomBlocObserver = 'lib/core/services/custom_bloc_observer.dart';
   static const String servicesDatabaseService = 'lib/core/services/database_service.dart';
   static const String servicesFirebaseAuthService = 'lib/core/services/firebase_auth_service.dart';

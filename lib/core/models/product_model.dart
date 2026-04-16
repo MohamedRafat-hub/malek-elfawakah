@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:fruit_hub/core/models/review_model.dart';
 
 import '../entities/product_entity.dart';
@@ -13,6 +14,8 @@ class ProductModel {
   final int numberOfCalories;
   final int unitAmount;
   bool isOrganic;
+  final int sellingCount;
+  final File image;
   final List<ReviewModel> reviews;
 
   ProductModel({
@@ -25,23 +28,45 @@ class ProductModel {
     required this.expirationMonths,
     required this.numberOfCalories,
     required this.unitAmount,
-    this.isOrganic = false, required this.reviews,
+    this.isOrganic = false,
+    required this.reviews,
+    required this.sellingCount,
+    required this.image,
   });
 
-  factory ProductModel.fromEntity(ProductEntity entity) {
+  factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
-
-      name: entity.name,
-      code: entity.code,
-      description: entity.description,
-      price: entity.price,
-      imageUrl: entity.imageUrl ?? '',
-      isFeatured: entity.isFeatured,
-      expirationMonths: entity.expirationMonths,
-      numberOfCalories: entity.numberOfCalories,
-      unitAmount: entity.unitAmount,
-      isOrganic: entity.isOrganic, reviews: entity.reviews.map((review) => ReviewModel.fromEntity(review)).toList(),
+      image: File(json['imageUrl']),
+      name: json['name'],
+      code: json['code'],
+      description: json['description'],
+      price: json['price'],
+      imageUrl: json['imageUrl'],
+      isFeatured: json['isFeatured'],
+      expirationMonths: json['expirationMonths'],
+      numberOfCalories: json['numberOfCalories'],
+      unitAmount: json['unitAmount'],
+      isOrganic: json['isOrganic'],
+      sellingCount: json['sellingCount'] ?? 0,
+      reviews: (json['reviews'] as List<dynamic>)
+          .map((reviewJson) => ReviewModel.fromJson(reviewJson))
+          .toList(),
     );
+  }
+
+  ProductEntity toEntity() {
+    return ProductEntity(
+        name: name,
+        price: price,
+        code: code,
+        description: description,
+        isFeatured: isFeatured,
+        image: image,
+        expirationMonths: expirationMonths,
+        numberOfCalories: numberOfCalories,
+        unitAmount: unitAmount,
+        isOrganic: isOrganic,
+        reviews: reviews.map((review) => review.toEntity()).toList(),);
   }
 
   Map<String, dynamic> toMap() {

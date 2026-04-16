@@ -4,7 +4,7 @@ import 'package:fruit_hub/features/auth/presentation/views/widgets/signup_view_b
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 import '../../../../../core/utils/app_colors.dart';
-import '../../../../home/presentation/views/home_view.dart';
+import '../../../../home/presentation/views/main_view.dart';
 import '../../cubits/signup_cubit/signup_cubit.dart';
 
 class SignUpBlocConsumer extends StatelessWidget {

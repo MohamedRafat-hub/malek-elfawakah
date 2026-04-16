@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/custom_bottom_navbar.dart';
-import 'package:fruit_hub/features/home/presentation/views/widgets/home_view_body.dart';
+import 'package:fruit_hub/features/home/presentation/views/widgets/home_view.dart';
 
 import '../../domain/entities/bottom_navbar_entity.dart';
 
-class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+class MainView extends StatelessWidget {
+  const MainView({super.key});
 
   static const routeName = 'HomeView';
 
@@ -14,7 +14,7 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.only(right: 12),
-        child: HomeViewBody(),
+        child: HomeView(),
       ),
       bottomNavigationBar: CustomBottomNavBar(),
     );

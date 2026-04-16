@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fruit_hub/features/best_selling_fruits/presentation/views/best_selling_view.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/search_text_field.dart';
 import 'package:gap/gap.dart';
+
+import '../../../../best_selling_fruits/presentation/views/best_selling_view.dart';
 import '../../../../best_selling_fruits/presentation/views/widgets/best_seller_title.dart';
 import 'best_selling_gridview.dart';
 import 'custom_appbar_widget.dart';
@@ -40,10 +40,10 @@ class HomeViewBody extends StatelessWidget {
                         child: Text(
                           'المزيد',
                           style: TextStyle(
-                            color: Color(0xFF949D9E),
-                            fontSize: 20,
-                            fontFamily: 'Cairo',
-                            fontWeight: FontWeight.w700
+                              color: Color(0xFF949D9E),
+                              fontSize: 20,
+                              fontFamily: 'Cairo',
+                              fontWeight: FontWeight.w700
                           ),
                         ),
                       ),
@@ -60,7 +60,3 @@ class HomeViewBody extends StatelessWidget {
     );
   }
 }
-
-
-
-

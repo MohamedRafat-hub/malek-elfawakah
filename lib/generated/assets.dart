@@ -69,8 +69,8 @@ class Assets {
   static const String utilsAppColors = 'lib/core/utils/app_colors.dart';
   static const String utilsBackendEndpoint = 'lib/core/utils/backend_endpoint.dart';
   static const String viewsBestSellingView = 'lib/features/best_selling_fruits/presentation/views/best_selling_view.dart';
-  static const String viewsHomeView = 'lib/features/home/presentation/views/home_view.dart';
   static const String viewsLoginView = 'lib/features/auth/presentation/views/login_view.dart';
+  static const String viewsMainView = 'lib/features/home/presentation/views/main_view.dart';
   static const String viewsOnboardingView = 'lib/features/onboarding/presentation/views/onboarding_view.dart';
   static const String viewsSignupView = 'lib/features/auth/presentation/views/signup_view.dart';
   static const String viewsSplahView = 'lib/features/splash/presentation/views/splah_view.dart';
@@ -89,6 +89,7 @@ class Assets {
   static const String widgetsFruitItem = 'lib/features/home/presentation/views/widgets/fruit_item.dart';
   static const String widgetsHomeFeaturedItem = 'lib/features/home/presentation/views/widgets/home_featured_item.dart';
   static const String widgetsHomeFeaturedList = 'lib/features/home/presentation/views/widgets/home_featured_list.dart';
+  static const String widgetsHomeView = 'lib/features/home/presentation/views/widgets/home_view.dart';
   static const String widgetsHomeViewBody = 'lib/features/home/presentation/views/widgets/home_view_body.dart';
   static const String widgetsInactiveItem = 'lib/features/home/presentation/views/widgets/inactive_item.dart';
   static const String widgetsLoginViewBody = 'lib/features/auth/presentation/views/widgets/login_view_body.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../home_view.dart';
+import '../main_view.dart';
 import 'bottom_navbar_item.dart';
 
 class CustomBottomNavBar extends StatefulWidget {

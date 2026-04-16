@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruit_hub/core/cubits/products_cubit/products_cubit.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/search_text_field.dart';
 import 'package:gap/gap.dart';
 
@@ -8,11 +10,21 @@ import 'best_selling_gridview.dart';
 import 'custom_appbar_widget.dart';
 import 'home_featured_list.dart';
 
-class HomeViewBody extends StatelessWidget {
+class HomeViewBody extends StatefulWidget {
   const HomeViewBody({
     super.key,
   });
 
+  @override
+  State<HomeViewBody> createState() => _HomeViewBodyState();
+}
+
+class _HomeViewBodyState extends State<HomeViewBody> {
+  @override
+  void initState() {
+    context.read<ProductsCubit>().getBestSellingProducts();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(

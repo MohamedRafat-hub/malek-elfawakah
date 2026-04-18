@@ -1,7 +1,5 @@
-
-
 import 'dart:developer';
-
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -10,7 +8,9 @@ import 'package:gap/gap.dart';
 
 class FruitItem extends StatelessWidget {
   const FruitItem({super.key, required this.productEntity});
+
   final ProductEntity productEntity;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,11 +24,20 @@ class FruitItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             GestureDetector(
-                onTap: (){
+                onTap: () {
                   log('${productEntity.imageUrl}');
                 },
                 child: Icon(CupertinoIcons.heart)),
-            Center(child: Image.network('${productEntity.imageUrl}')),
+            Flexible(
+              flex: 1,
+              child: Center(
+                child: CachedNetworkImage(
+                  imageUrl: '${productEntity.imageUrl}',
+                  placeholder: (context, url) => CircularProgressIndicator(),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
+                ),
+              ),
+            ),
             Gap(10),
             Text(
               productEntity.name,

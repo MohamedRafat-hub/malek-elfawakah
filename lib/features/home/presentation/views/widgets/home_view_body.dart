@@ -6,8 +6,7 @@ import 'package:gap/gap.dart';
 
 import '../../../../best_selling_fruits/presentation/views/best_selling_view.dart';
 import '../../../../best_selling_fruits/presentation/views/widgets/best_seller_title.dart';
-import 'best_selling_grid_view_bloc_builder.dart';
-import 'best_selling_gridview.dart';
+import 'products_grid_view_bloc_builder.dart';
 import 'custom_appbar_widget.dart';
 import 'home_featured_list.dart';
 
@@ -68,7 +67,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
               ],
             ),
           ),
-          BestSellingGridViewBlocBuilder(),
+          ProductsGridViewBlocBuilder(),
         ],
       ),
     );

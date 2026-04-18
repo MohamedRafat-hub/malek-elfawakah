@@ -4,7 +4,9 @@ import '../main_view.dart';
 import 'bottom_navbar_item.dart';
 
 class CustomBottomNavBar extends StatefulWidget {
-  const CustomBottomNavBar({super.key});
+  const CustomBottomNavBar({super.key, required this.onItemTapped});
+
+  final ValueChanged<int> onItemTapped;
 
   @override
   State<CustomBottomNavBar> createState() => _CustomBottomNavBarState();
@@ -44,6 +46,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
             onTap: () {
               setState(() {
                 selectedIndex = index;
+                widget.onItemTapped(index);
               });
             },
             child: BottomNavBarItem(

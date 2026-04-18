@@ -26,9 +26,9 @@ class FireStoreService implements DatabaseService {
       var data = await fireStore.collection(path).doc(documentId).get();
       return data.data(); // map<String , dynamic>
     } else {
+      Query<Map<String, dynamic>> data = fireStore.collection(path);
       if(query !=null)
         {
-          Query<Map<String, dynamic>> data = fireStore.collection(path);
           if(query['orderBy'] != null)
             {
               var orderByField = query['orderBy'];  // sellingCount
@@ -41,9 +41,9 @@ class FireStoreService implements DatabaseService {
               var limit = query['limit'];
               data = data.limit(limit);
             }
-          var result = await data.get();
-          return result.docs.map((e) => e.data()).toList();
         }
+      var result = await data.get();
+      return result.docs.map((e) => e.data()).toList();
     }
   }
 

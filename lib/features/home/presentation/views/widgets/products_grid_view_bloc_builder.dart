@@ -7,8 +7,8 @@ import 'package:skeletonizer/skeletonizer.dart';
 import '../../../../../core/cubits/products_cubit/products_cubit.dart';
 import 'best_selling_gridview.dart';
 
-class BestSellingGridViewBlocBuilder extends StatelessWidget {
-  const BestSellingGridViewBlocBuilder({
+class ProductsGridViewBlocBuilder extends StatelessWidget {
+  const ProductsGridViewBlocBuilder({
     super.key,
   });
 

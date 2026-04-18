@@ -36,17 +36,16 @@ class ProductRepoImpl implements ProductRepo {
   @override
   Future<Either<Failure, List<ProductEntity>>> getProducts() async {
     try {
-      var products = await databaseService.getData(
-          path: BackendEndpoint
-              .products); // Data from FireStore is in the form of List<Map<String, dynamic>>
+      List<Map<String, dynamic>> data =
+      await databaseService.getData(path: BackendEndpoint.products);
       List<ProductModel> productsList =
-          products.map((product) => ProductModel.fromJson(product)).toList();
-      List<ProductEntity> productsEntity =
-          productsList.map((e) => e.toEntity()).toList() as List<ProductEntity>;
-      return right(productsEntity);
+      data.map((e) => ProductModel.fromJson(e)).toList();
+      List<ProductEntity> products =
+      productsList.map((e) => e.toEntity()).toList();
+      return right(products);
     } catch (e) {
       log('error message is $e');
-      return left(ServerFailure('Failed to fetch products'));
+      return left(ServerFailure('Failed to get products'));
     }
   }
 }

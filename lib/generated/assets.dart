@@ -74,11 +74,12 @@ class Assets {
   static const String viewsLoginView = 'lib/features/auth/presentation/views/login_view.dart';
   static const String viewsMainView = 'lib/features/home/presentation/views/main_view.dart';
   static const String viewsOnboardingView = 'lib/features/onboarding/presentation/views/onboarding_view.dart';
+  static const String viewsProductsView = 'lib/features/home/presentation/views/products_view.dart';
   static const String viewsSignupView = 'lib/features/auth/presentation/views/signup_view.dart';
   static const String viewsSplahView = 'lib/features/splash/presentation/views/splah_view.dart';
   static const String widgetsActiveItem = 'lib/features/home/presentation/views/widgets/active_item.dart';
   static const String widgetsBestSellerTitle = 'lib/features/best_selling_fruits/presentation/views/widgets/best_seller_title.dart';
-  static const String widgetsBestSellingGridViewBlocBuilder = 'lib/features/home/presentation/views/widgets/best_selling_grid_view_bloc_builder.dart';
+  static const String widgetsBestSellingGridViewBlocBuilder = 'lib/features/home/presentation/views/widgets/products_grid_view_bloc_builder.dart';
   static const String widgetsBestSellingGridview = 'lib/features/home/presentation/views/widgets/best_selling_gridview.dart';
   static const String widgetsBestSellingViewBody = 'lib/features/best_selling_fruits/presentation/views/widgets/best_selling_view_body.dart';
   static const String widgetsBottomNavbarItem = 'lib/features/home/presentation/views/widgets/bottom_navbar_item.dart';
@@ -102,6 +103,7 @@ class Assets {
   static const String widgetsOnBoardingPageViewItem = 'lib/features/onboarding/presentation/views/widgets/on_boarding_page_view_item.dart';
   static const String widgetsOnboardingPageViewBody = 'lib/features/onboarding/presentation/views/widgets/onboarding_page_view_body.dart';
   static const String widgetsOrDivider = 'lib/core/widgets/or_divider.dart';
+  static const String widgetsProductViewBody = 'lib/features/home/presentation/views/widgets/product_view_body.dart';
   static const String widgetsSearchTextField = 'lib/features/home/presentation/views/widgets/search_text_field.dart';
   static const String widgetsShoppingButton = 'lib/features/home/presentation/views/widgets/shopping_button.dart';
   static const String widgetsSignupViewBody = 'lib/features/auth/presentation/views/widgets/signup_view_body.dart';

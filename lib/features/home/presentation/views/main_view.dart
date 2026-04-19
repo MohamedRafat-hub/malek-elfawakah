@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_hub/features/home/presentation/views/cart_view.dart';
 import 'package:fruit_hub/features/home/presentation/views/products_view.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/custom_bottom_navbar.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/home_view.dart';
@@ -20,21 +21,16 @@ class _MainViewState extends State<MainView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.only(right: 12),
-        child: IndexedStack(
-          index: currentIndex,
-          children: [
-            HomeView(),
-            ProductsView(),
-            Container(
-              color: Colors.green,
-            ),
-            Container(
-              color: Colors.blue,
-            )
-          ],
-        ),
+      body: IndexedStack(
+        index: currentIndex,
+        children: [
+          HomeView(),
+          ProductsView(),
+          CartView(),
+          Container(
+            color: Colors.blue,
+          )
+        ],
       ),
       bottomNavigationBar: CustomBottomNavBar(
         onItemTapped: (int index) {
@@ -48,22 +44,6 @@ class _MainViewState extends State<MainView> {
 }
 
 
-
-
-
-
-Widget getCurrentView(int index) {
-  return [
-    HomeView(),
-    ProductsView(),
-    Container(
-      color: Colors.green,
-    ),
-    Container(
-      color: Colors.blue,
-    )
-  ][index];
-}
 
 List<BottomNavBarEntity> get bottomNavBarItems => [
       BottomNavBarEntity(

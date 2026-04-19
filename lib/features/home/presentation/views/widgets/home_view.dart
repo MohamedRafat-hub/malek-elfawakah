@@ -15,7 +15,10 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => ProductsCubit(getIt.get<ProductRepo>()),
-      child: HomeViewBody(),
+      child: Padding(
+        padding: const EdgeInsets.only(right: 16),
+        child: HomeViewBody(),
+      ),
     );
   }
 }

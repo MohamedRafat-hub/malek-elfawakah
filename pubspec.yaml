@@ -54,6 +54,7 @@ dependencies:
   svg_image_provider: ^0.1.1
   skeletonizer: ^2.1.3
   cached_network_image: ^3.4.1
+  equatable: ^2.0.8
 
 
 
@@ -84,6 +85,7 @@ flutter:
     - lib/features/onboarding/presentation/views/
     - lib/features/onboarding/presentation/views/widgets/
     - lib/core/services/
+    - lib/features/home/domain/entities/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

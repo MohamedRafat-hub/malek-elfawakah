@@ -2,7 +2,13 @@
 class Assets {
   Assets._();
 
+  static const String cartCubitCartCubit = 'lib/features/home/presentation/managers/cartCubit/cart_cubit.dart';
+  static const String cartCubitCartState = 'lib/features/home/presentation/managers/cartCubit/cart_state.dart';
+  static const String cartItemCubitCartItemCubit = 'lib/features/home/presentation/managers/cartItemCubit/cart_item_cubit.dart';
+  static const String cartItemCubitCartItemState = 'lib/features/home/presentation/managers/cartItemCubit/cart_item_state.dart';
   static const String entitiesBottomNavbarEntity = 'lib/features/home/domain/entities/bottom_navbar_entity.dart';
+  static const String entitiesCartEntity = 'lib/features/home/domain/entities/cart_entity.dart';
+  static const String entitiesCartItemEntity = 'lib/features/home/domain/entities/cart_item_entity.dart';
   static const String entitiesProductEntity = 'lib/core/entities/product_entity.dart';
   static const String entitiesReviewEntity = 'lib/core/entities/review_entity.dart';
   static const String entitiesUserEntity = 'lib/features/auth/domain/entities/user_entity.dart';
@@ -10,6 +16,7 @@ class Assets {
   static const String errorsFailure = 'lib/core/errors/failure.dart';
   static const String generatedAssets = 'lib/generated/assets.dart';
   static const String generatedL10n = 'lib/generated/l10n.dart';
+  static const String helperFunctionsBuildShowSnackBar = 'lib/core/helper_functions/build_show_snack_bar.dart';
   static const String helperFunctionsGetAverageRating = 'lib/core/helper_functions/get_average_rating.dart';
   static const String helperFunctionsGetDummyProducts = 'lib/core/helper_functions/get_dummy_products.dart';
   static const String helperFunctionsOnGenerateRoute = 'lib/core/helper_functions/on_generate_route.dart';
@@ -88,13 +95,16 @@ class Assets {
   static const String widgetsBottomNavbarItem = 'lib/features/home/presentation/views/widgets/bottom_navbar_item.dart';
   static const String widgetsBuildAppBar = 'lib/features/auth/presentation/views/widgets/build_app_bar.dart';
   static const String widgetsCartItem = 'lib/features/home/presentation/views/widgets/cart_item.dart';
+  static const String widgetsCartItemControllers = 'lib/features/home/presentation/views/widgets/cart_item_controllers.dart';
   static const String widgetsCartItemList = 'lib/features/home/presentation/views/widgets/cart_item_list.dart';
   static const String widgetsCartViewAppBar = 'lib/features/home/presentation/views/widgets/cart_view_app_bar.dart';
+  static const String widgetsCartViewBody = 'lib/features/home/presentation/views/widgets/cart_view_body.dart';
   static const String widgetsCustomAppbarWidget = 'lib/features/home/presentation/views/widgets/custom_appbar_widget.dart';
   static const String widgetsCustomBottomNavbar = 'lib/features/home/presentation/views/widgets/custom_bottom_navbar.dart';
   static const String widgetsCustomErrorMessage = 'lib/core/widgets/custom_error_message.dart';
   static const String widgetsCustomMaterialButton = 'lib/core/widgets/custom_material_button.dart';
   static const String widgetsCustomNotificationWidget = 'lib/features/home/presentation/views/widgets/custom_notification_widget.dart';
+  static const String widgetsCustomProductAppBar = 'lib/features/home/presentation/views/widgets/custom_product_app_bar.dart';
   static const String widgetsCustomText = 'lib/core/widgets/custom_text.dart';
   static const String widgetsCustomTextFormField = 'lib/features/auth/presentation/views/widgets/custom_text_form_field.dart';
   static const String widgetsFruitItem = 'lib/features/home/presentation/views/widgets/fruit_item.dart';
@@ -109,7 +119,9 @@ class Assets {
   static const String widgetsOnBoardingPageViewItem = 'lib/features/onboarding/presentation/views/widgets/on_boarding_page_view_item.dart';
   static const String widgetsOnboardingPageViewBody = 'lib/features/onboarding/presentation/views/widgets/onboarding_page_view_body.dart';
   static const String widgetsOrDivider = 'lib/core/widgets/or_divider.dart';
+  static const String widgetsPaymentButton = 'lib/features/home/presentation/views/widgets/payment_button.dart';
   static const String widgetsProductViewBody = 'lib/features/home/presentation/views/widgets/product_view_body.dart';
+  static const String widgetsProductViewHeader = 'lib/features/home/presentation/views/widgets/product_view_header.dart';
   static const String widgetsProductsGridViewBlocBuilder = 'lib/features/home/presentation/views/widgets/products_grid_view_bloc_builder.dart';
   static const String widgetsSearchTextField = 'lib/features/home/presentation/views/widgets/search_text_field.dart';
   static const String widgetsShoppingButton = 'lib/features/home/presentation/views/widgets/shopping_button.dart';

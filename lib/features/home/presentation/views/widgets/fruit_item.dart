@@ -2,8 +2,10 @@ import 'dart:developer';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fruit_hub/core/entities/product_entity.dart';
+import 'package:fruit_hub/features/home/presentation/managers/cartCubit/cart_cubit.dart';
 import 'package:gap/gap.dart';
 
 class FruitItem extends StatelessWidget {
@@ -94,7 +96,11 @@ class FruitItem extends StatelessWidget {
                   textAlign: TextAlign.right,
                 ),
                 Spacer(),
-                SvgPicture.asset('assets/icons/add_icon.svg'),
+                GestureDetector(
+                    onTap: () {
+                      context.read<CartCubit>().addProductToCart(productEntity);
+                    },
+                    child: SvgPicture.asset('assets/icons/add_icon.svg')),
               ],
             )
           ],

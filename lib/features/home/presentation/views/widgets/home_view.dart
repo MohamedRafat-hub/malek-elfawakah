@@ -10,7 +10,7 @@ class HomeView extends StatelessWidget {
   const HomeView({
     super.key,
   });
-
+  static const routeName = 'Home View';
   @override
   Widget build(BuildContext context) {
     return BlocProvider(

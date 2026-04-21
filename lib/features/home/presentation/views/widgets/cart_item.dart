@@ -1,140 +1,131 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fruit_hub/features/home/domain/entities/cart_item_entity.dart';
+import 'package:fruit_hub/features/home/presentation/managers/cartCubit/cart_cubit.dart';
+import 'package:fruit_hub/features/home/presentation/managers/cartItemCubit/cart_item_cubit.dart';
 import 'package:gap/gap.dart';
 
-class CartItem extends StatelessWidget {
-  const CartItem({super.key});
+import 'cart_item_controllers.dart';
+
+class CartItem extends StatefulWidget {
+  const CartItem({super.key, required this.cartItemEntity});
+
+  final CartItemEntity cartItemEntity;
 
   @override
+  State<CartItem> createState() => _CartItemState();
+}
+
+class _CartItemState extends State<CartItem> {
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(10),
-      decoration: ShapeDecoration(
-        color: Colors.white.withValues(alpha: 0.10),
-        shape: RoundedRectangleBorder(
-          side: BorderSide(
-            width: 1,
-            color: const Color(0x66CACECE),
-          ),
-          borderRadius: BorderRadius.circular(4),
-        ),
-      ),
-      child: Row(
-        children: [
-          Container(
-            padding: EdgeInsets.all(8),
-            width: 80,
-            height: 100,
+    return BlocBuilder<CartItemCubit, CartItemState>(
+      buildWhen: (prev , current){
+        if(current is CartItemUpdated)
+          {
+            if(current.cartItemEntity == widget.cartItemEntity)
+              {
+                return true;
+              }
+          }
+        return false;
+      },
+      builder: (context, state) {
+        return Dismissible(
+          key: ValueKey(widget.cartItemEntity.productEntity.code),
+          // مهم جدًا
+          direction: DismissDirection.endToStart,
+          // سحب من اليمين لليسار
+          onDismissed: (_) {
+            context.read<CartCubit>().removeCartItem(widget.cartItemEntity);
+          },
+
+          background: Container(
+            alignment: Alignment.centerRight,
+            padding: EdgeInsets.symmetric(horizontal: 20),
             decoration: BoxDecoration(
-              color: Colors.grey[300],
-              borderRadius: BorderRadius.circular(8),
+              color: Colors.red,
+              borderRadius: BorderRadius.circular(4),
             ),
-            child: Image.asset('assets/images/watermelon.png'),
+            child: Icon(Icons.delete, color: Colors.white),
           ),
 
-          /// Image of the product
-
-          Gap(10),
-          Expanded(
-            child: Column(
-              spacing: 5,
-              crossAxisAlignment: CrossAxisAlignment.start,
+          child: Container(
+            padding: EdgeInsets.all(10),
+            decoration: ShapeDecoration(
+              color: Colors.white.withValues(alpha: 0.8),
+              shape: RoundedRectangleBorder(
+                side: BorderSide(
+                  width: 1,
+                    color: const Color(0xFFF3F5F7),
+                ),
+                borderRadius: BorderRadius.circular(4),
+              ),
+            ),
+            child: Row(
               children: [
-                Row(
-                  children: [
-                    Text(
-                      'بطيخ ',
-                      style: TextStyle(
-                        color: const Color(0xFF0C0D0D) /* Grayscale-950 */,
-                        fontSize: 16,
-                        fontFamily: 'Cairo',
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    Spacer(),
-                    GestureDetector(
-                        onTap: () {},
-                        child: SvgPicture.asset('assets/icons/trash_icon.svg')),
-                  ],
-                ),
-
-                /// Name of the product and delete icon
-
-                Text(
-                  '3 كجم',
-                  textAlign: TextAlign.right,
-                  style: TextStyle(
-                    color: const Color(0xFFF4A91F) /* Orange-500 */,
-                    fontSize: 16,
-                    fontFamily: 'Cairo',
-                    fontWeight: FontWeight.w700,
-                    height: 1.60,
+                Container(
+                  padding: EdgeInsets.all(8),
+                  width: 80,
+                  height: 100,
+                  decoration: BoxDecoration(
+                      color: const Color(0xFFF3F5F7),
+                    borderRadius: BorderRadius.circular(8),
                   ),
+                  child: Image.network(
+                      widget.cartItemEntity.productEntity.imageUrl!),
                 ),
-
-                /// Quantity of the product
-
-                Row(
-                  spacing: 8,
-                  children: [
-                    GestureDetector(
-                        onTap: () {},
-                        child: SvgPicture.asset(
-                          'assets/icons/add_icon.svg',
-                          width: 30,
-                        )),
-                    Text(
-                      '3',
-                      style: TextStyle(
-                        color: const Color(0xFF0C0D0D) /* Grayscale-950 */,
-                        fontSize: 16,
-                        fontFamily: 'Cairo',
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    GestureDetector(
-                        onTap: () {},
-                        child: SvgPicture.asset(
-                          'assets/icons/remove_icon.svg',
-                          width: 30,
-                        )),
-                    Spacer(),
-                    Text.rich(
-                      TextSpan(
+                Gap(10),
+                Expanded(
+                  child: Column(
+                    spacing: 5,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
                         children: [
-                          TextSpan(
-                            text: '60 جنيه',
+                          Text(
+                            widget.cartItemEntity.productEntity.name,
                             style: TextStyle(
-                              color: const Color(0xFFF4A91F) /* Orange-500 */,
+                              color: const Color(0xFF0C0D0D),
                               fontSize: 16,
                               fontFamily: 'Cairo',
                               fontWeight: FontWeight.w700,
                             ),
                           ),
-                          TextSpan(
-                            text: ' ',
-                            style: TextStyle(
-                              color: const Color(0xFFF4A91F) /* Orange-500 */,
-                              fontSize: 13,
-                              fontFamily: 'DM Sans',
-                              fontWeight: FontWeight.w700,
-                            ),
+                          Spacer(),
+                          GestureDetector(
+                            onTap: () {
+                              context
+                                  .read<CartCubit>()
+                                  .removeCartItem(widget.cartItemEntity);
+                            },
+                            child:
+                                SvgPicture.asset('assets/icons/trash_icon.svg'),
                           ),
                         ],
                       ),
-                      textAlign: TextAlign.right,
-                    )
-                  ],
+                      Text(
+                        '${widget.cartItemEntity.calculateTotalWeight()} كجم',
+                        style: TextStyle(
+                          color: const Color(0xFFF4A91F),
+                          fontSize: 16,
+                          fontFamily: 'Cairo',
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      CartItemControls(cartItemEntity: widget.cartItemEntity),
+                    ],
+                  ),
                 ),
-
-                /// Quantity control and price of the product
+                Gap(12)
               ],
             ),
           ),
-
-          Gap(12)
-        ],
-      ),
+        );
+      },
     );
   }
 }
+
+

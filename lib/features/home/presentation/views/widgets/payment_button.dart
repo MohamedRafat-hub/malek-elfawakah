@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruit_hub/features/checkout/presentation/views/checkout_view.dart';
 
 import '../../../../../core/widgets/custom_material_button.dart';
 import '../../managers/cartCubit/cart_cubit.dart';
@@ -17,7 +18,9 @@ class PaymentButton extends StatelessWidget {
         return CustomMaterialButton(
           buttonName:
           'الدفع ${context.watch<CartCubit>().cartEntity.calculateTotalPrice()} جنيه ',
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, CheckoutView.routeName);
+          },
         );
       },
     );

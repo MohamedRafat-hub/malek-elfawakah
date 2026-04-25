@@ -37,7 +37,7 @@ class CustomTextFormField extends StatelessWidget {
               fontSize: 13,
               fontWeight: FontWeight.w700),
           filled: true,
-          fillColor: Color(0xFFE6E9E9),
+          fillColor: Color(0xFFF9FAFA),
           border: buildBorder(),
           enabledBorder: buildBorder()),
     );

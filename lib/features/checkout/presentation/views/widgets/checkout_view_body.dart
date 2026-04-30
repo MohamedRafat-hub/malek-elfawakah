@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruit_hub/core/helper_functions/build_show_snack_bar.dart';
 import 'package:fruit_hub/core/widgets/custom_material_button.dart';
+import 'package:fruit_hub/features/checkout/domain/order_entity.dart';
 import 'package:gap/gap.dart';
 import 'checkout_page_view.dart';
 import 'checkout_steps.dart';
@@ -47,9 +50,15 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
         CustomMaterialButton(
             buttonName: getNextButtonText(),
             onPressed: () {
-              pageController.nextPage(
-                  duration: Duration(milliseconds: 150),
-                  curve: Curves.easeInOut);
+              if(context.read<OrderEntity>().payWithCache != null) {
+                pageController.nextPage(
+                    duration: Duration(milliseconds: 150),
+                    curve: Curves.easeInOut);
+              }
+              else
+                {
+                  showSnackBar(context, message: 'برجاء اختيار طريقة الدفع' , color: Colors.red);
+                }
             }),
         Gap(50),
       ],

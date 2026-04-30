@@ -6,6 +6,8 @@ class Assets {
   static const String cartCubitCartState = 'lib/features/home/presentation/managers/cartCubit/cart_state.dart';
   static const String cartItemCubitCartItemCubit = 'lib/features/home/presentation/managers/cartItemCubit/cart_item_cubit.dart';
   static const String cartItemCubitCartItemState = 'lib/features/home/presentation/managers/cartItemCubit/cart_item_state.dart';
+  static const String domainOrderEntity = 'lib/features/checkout/domain/order_entity.dart';
+  static const String domainShippingAddressEntity = 'lib/features/checkout/domain/shipping_address_entity.dart';
   static const String entitiesBottomNavbarEntity = 'lib/features/home/domain/entities/bottom_navbar_entity.dart';
   static const String entitiesCartEntity = 'lib/features/home/domain/entities/cart_entity.dart';
   static const String entitiesCartItemEntity = 'lib/features/home/domain/entities/cart_item_entity.dart';
@@ -93,6 +95,7 @@ class Assets {
   static const String widgetsActiveItem = 'lib/features/home/presentation/views/widgets/active_item.dart';
   static const String widgetsActiveStepItem = 'lib/features/checkout/presentation/views/widgets/active_step_item.dart';
   static const String widgetsAddressInputSection = 'lib/features/checkout/presentation/views/widgets/address_input_section.dart';
+  static const String widgetsAddressItem = 'lib/features/checkout/presentation/views/widgets/address_item.dart';
   static const String widgetsBestSellerTitle = 'lib/features/best_selling_fruits/presentation/views/widgets/best_seller_title.dart';
   static const String widgetsBestSellingGridview = 'lib/features/home/presentation/views/widgets/best_selling_gridview.dart';
   static const String widgetsBestSellingViewBody = 'lib/features/best_selling_fruits/presentation/views/widgets/best_selling_view_body.dart';

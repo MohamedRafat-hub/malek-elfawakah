@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruit_hub/core/utils/app_decoration.dart';
 import 'package:gap/gap.dart';
 
+import 'address_item.dart';
 import 'order_summary_widget.dart';
 
 class PaymentSection extends StatelessWidget {
@@ -14,7 +15,7 @@ class PaymentSection extends StatelessWidget {
         Gap(24),
         OrderSummaryWidget(),
         Gap(16),
-
+        AddressItem(),
       ],
     );
   }

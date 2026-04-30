@@ -29,10 +29,10 @@ class _MainViewState extends State<MainView> {
         body: BlocListener<CartCubit, CartState>(
           listener: (context, state) {
             if(state is CartItemAdded) {
-              buildShowSnackBar(context , message: 'تم إضافة المنتج إلى سلة التسوق بنجاح');
+              showSnackBar(context , message: 'تم إضافة المنتج إلى سلة التسوق بنجاح');
             }
             else if(state is CartItemRemoved) {
-              buildShowSnackBar(context , message: 'تم حذف المنتج من سلة التسوق');
+              showSnackBar(context , message: 'تم حذف المنتج من سلة التسوق');
             }
           },
           child: IndexedStack(

@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 
-ScaffoldFeatureController<SnackBar, SnackBarClosedReason> buildShowSnackBar(BuildContext context , {required String message}) {
+ScaffoldFeatureController<SnackBar, SnackBarClosedReason> showSnackBar(BuildContext context , {required String message , Color? color}) {
   return ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Center(
         child: Text(message , style: TextStyle(
@@ -11,6 +11,6 @@ ScaffoldFeatureController<SnackBar, SnackBarClosedReason> buildShowSnackBar(Buil
           fontWeight: FontWeight.w400,
           height: 1.60,
         ),),
-      ), backgroundColor: Colors.green, duration: Duration(seconds: 1),)
+      ), backgroundColor: color ?? Colors.green, duration: Duration(seconds: 1),)
   );
 }

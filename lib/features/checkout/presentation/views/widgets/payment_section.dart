@@ -6,8 +6,8 @@ import 'address_item.dart';
 import 'order_summary_widget.dart';
 
 class PaymentSection extends StatelessWidget {
-  const PaymentSection({super.key});
-
+  const PaymentSection({super.key, required this.pageController});
+  final PageController pageController;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -15,7 +15,9 @@ class PaymentSection extends StatelessWidget {
         Gap(24),
         OrderSummaryWidget(),
         Gap(16),
-        AddressItem(),
+        AddressItem(
+          pageController: pageController
+        ),
       ],
     );
   }

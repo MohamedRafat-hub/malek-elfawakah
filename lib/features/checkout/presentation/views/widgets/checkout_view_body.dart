@@ -17,7 +17,10 @@ class CheckoutViewBody extends StatefulWidget {
 class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   late PageController pageController;
   int currentPageIndex = 0;
-
+  final GlobalKey<FormState>formKey = GlobalKey();
+  ValueNotifier<AutovalidateMode>valueNotifier = ValueNotifier(
+    AutovalidateMode.disabled
+  );
   @override
   void initState() {
     pageController = PageController();
@@ -32,6 +35,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   @override
   void dispose() {
     pageController.dispose();
+    valueNotifier.dispose();
     super.dispose();
   }
 
@@ -41,28 +45,42 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
       children: [
         Gap(20),
         CheckoutSteps(
+          formKey: formKey,
           currentPageIndex: currentPageIndex,
           pageController: pageController,
         ),
         CheckoutPageView(
           pageController: pageController,
+          formKey: formKey,
+          valueListenable: valueNotifier,
         ),
         CustomMaterialButton(
             buttonName: getNextButtonText(),
             onPressed: () {
-              if(context.read<OrderEntity>().payWithCache != null) {
-                pageController.nextPage(
-                    duration: Duration(milliseconds: 150),
-                    curve: Curves.easeInOut);
+              if(currentPageIndex ==0 ) {
+                handleShippingSectionValidation(context);
               }
-              else
+              else if(currentPageIndex == 1)
                 {
-                  showSnackBar(context, message: 'برجاء اختيار طريقة الدفع' , color: Colors.red);
+                  handleAddressingSectionValidation(
+                  );
                 }
             }),
         Gap(50),
       ],
     );
+  }
+
+  void handleShippingSectionValidation(BuildContext context) {
+    if(context.read<OrderEntity>().payWithCache != null) {
+      pageController.nextPage(
+          duration: Duration(milliseconds: 150),
+          curve: Curves.easeInOut);
+    }
+    else
+      {
+        showSnackBar(context, message: 'برجاء اختيار طريقة الدفع' , color: Colors.red);
+      }
   }
   String getNextButtonText(){
     switch(currentPageIndex){
@@ -75,5 +93,19 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
        default:
          return 'التالي';
     }
+  }
+
+  void handleAddressingSectionValidation() {
+    if(formKey.currentState!.validate())
+      {
+        formKey.currentState!.save();
+        pageController.nextPage(
+            duration: Duration(milliseconds: 150),
+            curve: Curves.easeInOut);
+      }
+    else
+      {
+        valueNotifier.value = AutovalidateMode.always;
+      }
   }
 }

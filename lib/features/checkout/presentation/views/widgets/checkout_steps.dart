@@ -10,10 +10,12 @@ class CheckoutSteps extends StatelessWidget {
   const CheckoutSteps(
       {super.key,
       required this.currentPageIndex,
-      required this.pageController});
+      required this.pageController,
+      required this.formKey});
 
   final int currentPageIndex;
   final PageController pageController;
+  final GlobalKey<FormState> formKey;
 
   @override
   Widget build(BuildContext context) {
@@ -23,15 +25,13 @@ class CheckoutSteps extends StatelessWidget {
             (index) => Expanded(
                     child: GestureDetector(
                   onTap: () {
-                    if (context.read<OrderEntity>().payWithCache != null) {
-                      pageController.animateToPage(index,
+                      if (canNavigateTo(index , context)) {
+                        pageController.animateToPage(
+                          index,
                           duration: Duration(milliseconds: 300),
-                          curve: Curves.easeInOut);
-                    } else {
-                      showSnackBar(context,
-                          message: 'برجاء اختيار طريقة الدفع',
-                          color: Colors.red);
-                    }
+                          curve: Curves.easeInOut,
+                        );
+                      }
                   },
                   child: StepItem(
                       index: index + 1,
@@ -47,4 +47,37 @@ class CheckoutSteps extends StatelessWidget {
       'الدفع',
     ];
   }
+
+
+  bool canNavigateTo(int index , BuildContext context) {
+    final order = context.read<OrderEntity>();
+
+    // step 0
+    if (currentPageIndex == 0) {
+      if (order.payWithCache == null) {
+        showSnackBar(context,
+            message: 'برجاء اختيار طريقة الدفع',
+            color: Colors.red);
+        return false;
+      }
+
+      if (index == 2 && !formKey.currentState!.validate()) {
+        return false;
+      }
+    }
+
+    // step 1
+    if (currentPageIndex == 1) {
+      if (!formKey.currentState!.validate()) {
+        if (index > currentPageIndex) {
+          showSnackBar(context,
+              message: 'برجاء ملئ جميع الحقول أولا',
+              color: Colors.red);
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
 }

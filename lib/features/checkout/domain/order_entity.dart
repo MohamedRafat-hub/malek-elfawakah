@@ -5,10 +5,10 @@ import 'package:fruit_hub/features/home/domain/entities/cart_item_entity.dart';
 class OrderEntity {
   final CartEntity cartEntity;
   bool? payWithCache;
-  final ShippingAddressEntity? shippingAddress;
+  ShippingAddressEntity shippingAddress;
 
   OrderEntity(
       {this.payWithCache,
-       this.shippingAddress,
+       required this.shippingAddress,
       required this.cartEntity});
 }

@@ -25,7 +25,7 @@ class _ShippingSectionState extends State<ShippingSection> with AutomaticKeepAli
         ShippingItem(
           title: 'الدفع عند الاستلام',
           subTitle: 'التسليم من المكان',
-          price: (context.read<OrderEntity>().cartEntity.calculateTotalPrice()+20.0).toString(),
+          price: (context.read<OrderEntity>().cartEntity.calculateTotalPrice()+30.0).toString(),
           isSelected: selectedIndex == 0,
           onTap: (){
             setState(() {

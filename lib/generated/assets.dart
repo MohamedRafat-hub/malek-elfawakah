@@ -2,6 +2,8 @@
 class Assets {
   Assets._();
 
+  static const String addOrderCubitAddOrderCubit = 'lib/features/checkout/presentation/managers/add_order_cubit/add_order_cubit.dart';
+  static const String addOrderCubitAddOrderState = 'lib/features/checkout/presentation/managers/add_order_cubit/add_order_state.dart';
   static const String cartCubitCartCubit = 'lib/features/home/presentation/managers/cartCubit/cart_cubit.dart';
   static const String cartCubitCartState = 'lib/features/home/presentation/managers/cartCubit/cart_state.dart';
   static const String cartItemCubitCartItemCubit = 'lib/features/home/presentation/managers/cartItemCubit/cart_item_cubit.dart';

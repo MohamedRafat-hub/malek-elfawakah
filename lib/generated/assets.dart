@@ -63,8 +63,11 @@ class Assets {
   static const String libMain = 'lib/main.dart';
   static const String loginCubitLoginCubit = 'lib/features/auth/presentation/cubits/login_cubit/login_cubit.dart';
   static const String loginCubitLoginState = 'lib/features/auth/presentation/cubits/login_cubit/login_state.dart';
+  static const String modelsOrderModel = 'lib/features/checkout/data/models/order_model.dart';
+  static const String modelsOrderProdctModel = 'lib/features/checkout/data/models/order_prodct_model.dart';
   static const String modelsProductModel = 'lib/core/models/product_model.dart';
   static const String modelsReviewModel = 'lib/core/models/review_model.dart';
+  static const String modelsShippingAddressModel = 'lib/features/checkout/data/models/shipping_address_model.dart';
   static const String modelsUserModel = 'lib/features/auth/data/models/user_model.dart';
   static const String productsCubitProductsCubit = 'lib/core/cubits/products_cubit/products_cubit.dart';
   static const String productsCubitProductsState = 'lib/core/cubits/products_cubit/products_state.dart';

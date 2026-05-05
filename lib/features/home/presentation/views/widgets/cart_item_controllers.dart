@@ -29,7 +29,7 @@ class CartItemControls extends StatelessWidget {
           ),
         ),
         Text(
-          cartItemEntity.count.toString(),
+          cartItemEntity.quantity.toString(),
           style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w700,

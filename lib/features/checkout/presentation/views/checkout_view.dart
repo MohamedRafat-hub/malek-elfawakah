@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/features/checkout/domain/order_entity.dart';
 import 'package:fruit_hub/features/checkout/domain/shipping_address_entity.dart';
@@ -24,6 +25,7 @@ class _CheckoutViewState extends State<CheckoutView> {
   @override
   void initState() {
      orderEntity = OrderEntity(
+         uid: FirebaseAuth.instance.currentUser!.uid,
         cartEntity: widget.cartEntity,
         shippingAddress: ShippingAddressEntity());
     super.initState();

@@ -101,6 +101,7 @@ class Assets {
   static const String viewsSplahView = 'lib/features/splash/presentation/views/splah_view.dart';
   static const String widgetsActiveItem = 'lib/features/home/presentation/views/widgets/active_item.dart';
   static const String widgetsActiveStepItem = 'lib/features/checkout/presentation/views/widgets/active_step_item.dart';
+  static const String widgetsAddOrderCubitBlocBuilder = 'lib/features/checkout/presentation/views/widgets/add_order_cubit_bloc_builder.dart';
   static const String widgetsAddressInputSection = 'lib/features/checkout/presentation/views/widgets/address_input_section.dart';
   static const String widgetsAddressItem = 'lib/features/checkout/presentation/views/widgets/address_item.dart';
   static const String widgetsBestSellerTitle = 'lib/features/best_selling_fruits/presentation/views/widgets/best_seller_title.dart';

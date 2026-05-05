@@ -25,12 +25,12 @@ class _ShippingSectionState extends State<ShippingSection> with AutomaticKeepAli
         ShippingItem(
           title: 'الدفع عند الاستلام',
           subTitle: 'التسليم من المكان',
-          price: (context.read<OrderEntity>().cartEntity.calculateTotalPrice()+30.0).toString(),
+          price: (context.read<OrderEntity>().cartEntity.calculateTotalPrice()+0.0).toString(),
           isSelected: selectedIndex == 0,
           onTap: (){
             setState(() {
               selectedIndex = 0;
-              context.read<OrderEntity>().payWithCache = false;
+              context.read<OrderEntity>().payWithCache = true;
             });
           },
         ),
@@ -43,7 +43,7 @@ class _ShippingSectionState extends State<ShippingSection> with AutomaticKeepAli
           onTap: (){
             setState(() {
               selectedIndex = 1;
-              context.read<OrderEntity>().payWithCache = true;
+              context.read<OrderEntity>().payWithCache = false;
             });
           },
         ),

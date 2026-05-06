@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/features/auth/presentation/views/widgets/custom_text_form_field.dart';
-import 'package:fruit_hub/features/checkout/domain/order_entity.dart';
+import 'package:fruit_hub/features/checkout/domain/entities/order_entity.dart';
 
 class AddressInputSection extends StatelessWidget {
   const AddressInputSection({super.key , required this.formKey, required this.valueListenable});

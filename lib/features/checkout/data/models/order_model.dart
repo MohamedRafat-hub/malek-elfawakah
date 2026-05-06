@@ -1,5 +1,5 @@
 import 'package:fruit_hub/features/checkout/data/models/shipping_address_model.dart';
-import '../../domain/order_entity.dart';
+import '../../domain/entities/order_entity.dart';
 import 'order_prodct_model.dart';
 
 class OrderModel {

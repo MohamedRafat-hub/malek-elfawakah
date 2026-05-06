@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/helper_functions/build_show_snack_bar.dart';
-import 'package:fruit_hub/features/checkout/domain/order_entity.dart';
+import 'package:fruit_hub/features/checkout/domain/entities/order_entity.dart';
 import 'package:fruit_hub/features/checkout/presentation/views/widgets/step_item.dart';
 
 class CheckoutSteps extends StatelessWidget {

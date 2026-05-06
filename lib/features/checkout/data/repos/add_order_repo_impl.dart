@@ -5,7 +5,7 @@ import 'package:fruit_hub/core/services/database_service.dart';
 import 'package:fruit_hub/core/utils/backend_endpoint.dart';
 import 'package:fruit_hub/features/checkout/data/models/order_model.dart';
 
-import 'package:fruit_hub/features/checkout/domain/order_entity.dart';
+import 'package:fruit_hub/features/checkout/domain/entities/order_entity.dart';
 
 import '../../domain/repos/add_order_repo.dart';
 

@@ -2,9 +2,11 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
 import 'package:fruit_hub/core/helper_functions/build_show_snack_bar.dart';
 import 'package:fruit_hub/core/widgets/custom_material_button.dart';
-import 'package:fruit_hub/features/checkout/domain/order_entity.dart';
+import 'package:fruit_hub/features/checkout/domain/entities/order_entity.dart';
+import 'package:fruit_hub/features/checkout/domain/entities/payment_entity.dart';
 import 'package:fruit_hub/features/checkout/presentation/managers/add_order_cubit/add_order_cubit.dart';
 import 'package:gap/gap.dart';
 import 'checkout_page_view.dart';
@@ -108,5 +110,33 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
     } else {
       valueNotifier.value = AutovalidateMode.always;
     }
+  }
+
+  void _processPayment() {
+    var orderEntity = context.read<OrderEntity>();
+    PaypalPaymentEntity paymentEntity =
+        PaypalPaymentEntity.fromEntity(orderEntity);
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (BuildContext context) => PaypalCheckoutView(
+        sandboxMode: true,
+        // Test ?
+        clientId: "",
+        secretKey: "",
+        transactions:  [
+          paymentEntity.toJson(),
+        ],
+        note: "Contact us for any questions on your order.",
+        onSuccess: (Map params) async {
+          print("onSuccess: $params");
+        },
+        onError: (error) {
+          print("onError: $error");
+          Navigator.pop(context);
+        },
+        onCancel: () {
+          print('cancelled:');
+        },
+      ),
+    ));
   }
 }

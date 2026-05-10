@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fruit_hub/core/errors/exceptions.dart';
 import 'package:fruit_hub/core/errors/failure.dart';
+import 'package:fruit_hub/core/helper_functions/handle_auth_exception.dart';
 import 'package:fruit_hub/core/services/database_service.dart';
 import 'package:fruit_hub/core/services/firebase_auth_service.dart';
 import 'package:fruit_hub/core/utils/backend_endpoint.dart';
@@ -131,5 +132,15 @@ class AuthRepoImpl extends AuthRepo {
   Future<bool> checkIfDataExist(
       {required String path, required String documentId}) {
     return databaseService.checkIfDataExist(path: path, documentId: documentId);
+  }
+
+  @override
+  Future<Either<Failure, void>> sendPasswordResetEmail({required String email})async {
+    try {
+      await firebaseAuthService.sendPasswordResetEmail(email: email.trim());
+      return right(null);
+    } on FirebaseAuthException catch (e) {
+      return left(ServerFailure(handleAuthException(e)));
+    }
   }
 }

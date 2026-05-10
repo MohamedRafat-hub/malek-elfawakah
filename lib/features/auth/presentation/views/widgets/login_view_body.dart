@@ -1,19 +1,18 @@
 import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fruit_hub/core/utils/app_colors.dart';
+import 'package:fruit_hub/core/helper_functions/build_show_snack_bar.dart';
 import 'package:fruit_hub/core/widgets/custom_material_button.dart';
-import 'package:fruit_hub/core/widgets/custom_text.dart';
 import 'package:fruit_hub/features/auth/presentation/cubits/login_cubit/login_cubit.dart';
-import 'package:fruit_hub/features/auth/presentation/views/login_view.dart';
-import 'package:fruit_hub/features/auth/presentation/views/signup_view.dart';
 import 'package:fruit_hub/features/auth/presentation/views/widgets/social_login_button.dart';
+import 'package:fruit_hub/features/home/presentation/views/main_view.dart';
 import 'package:gap/gap.dart';
 
 import '../../../../../core/widgets/or_divider.dart';
 import 'custom_text_form_field.dart';
+import 'dont_have_account.dart';
+import 'forget_password_widget.dart';
 
 class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});
@@ -24,7 +23,7 @@ class LoginViewBody extends StatefulWidget {
 
 class _LoginViewBodyState extends State<LoginViewBody> {
   bool obscureText = true;
-  late String email, password;
+  String email = '', password = '';
   GlobalKey<FormState> formKey = GlobalKey();
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
 
@@ -66,56 +65,55 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               ),
             ),
             Gap(16),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                CustomText(
-                  text: 'نسيت كلمة المرور؟',
-                  color: Color(0xFF2D9F5D),
-                  fontSize: 13,
-                  fontWeight: FontWeight.w600,
-                ),
-              ],
+            ForgetPasswordWidget(
+              onTap: () {
+                if (email.trim().isEmpty) {
+                  showSnackBar(context,
+                      message:
+                          'يرجى ادخال البريد الالكتروني في الحقل المخصص له ثم الضغط على نسيت كلمة المرور',
+                      color: Colors.red);
+                } else {
+                  log('send password reset email to $email');
+                  context
+                      .read<LoginCubit>()
+                      .sendPasswordResetEmail(email: email);
+                }
+              },
             ),
             Gap(16),
-            CustomMaterialButton(
-                buttonName: 'تسجيل دخول',
-                onPressed: () {
-                  if (formKey.currentState!.validate()) {
-                    formKey.currentState!.save();
-                    BlocProvider.of<LoginCubit>(context)
-                        .login(email: email, password: password);
-                  } else {
-                    {
-                      setState(() {
-                        autoValidateMode = AutovalidateMode.always;
-                      });
-                    }
-                  }
-                }),
-            Gap(30),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CustomText(
-                  text: 'لا تمتلك حساب؟ ',
-                  color: Colors.grey,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
-                Gap(4),
-                GestureDetector(
-                  onTap: () =>
-                      Navigator.pushNamed(context, SignupView.routeName),
-                  child: CustomText(
-                    text: 'قم بإنشاء حساب',
-                    color: AppColors.primaryColor,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ],
+            BlocConsumer<LoginCubit, LoginState>(
+              listener: (context, state) {
+                if (state is LoginFailure) {
+                  showSnackBar(context,
+                      message: state.errorMessage, color: Colors.red);
+                } else if (state is LoginSuccess) {
+                  showSnackBar(context,
+                      message: 'تم تسجيل الدخول بنجاح', color: Colors.green);
+                  Navigator.pushReplacementNamed(context, MainView.routeName);
+                }
+              },
+              builder: (context, state) {
+                return state is LoginLoading
+                    ? CircularProgressIndicator()
+                    : CustomMaterialButton(
+                        buttonName: 'تسجيل دخول',
+                        onPressed: () {
+                          if (formKey.currentState!.validate()) {
+                            formKey.currentState!.save();
+                            BlocProvider.of<LoginCubit>(context)
+                                .login(email: email, password: password);
+                          } else {
+                            {
+                              setState(() {
+                                autoValidateMode = AutovalidateMode.always;
+                              });
+                            }
+                          }
+                        });
+              },
             ),
+            Gap(30),
+           DontHaveAccountWidget(),
             Gap(30),
             OrDivider(),
             Gap(16),

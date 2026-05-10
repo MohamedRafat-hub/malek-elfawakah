@@ -14,38 +14,6 @@ class LoginViewBodyBlocConsumer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<LoginCubit, LoginState>(
-      listener: (context, state) {
-        if (state is LoginSuccess) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Center(
-                  child: Text(
-                'تم تسجيل الدخول بنجاح',
-                style: TextStyle(color: Colors.white, fontSize: 16),
-              )),
-              backgroundColor: AppColors.primaryColor,
-            ),
-          );
-          Navigator.pushReplacementNamed(context, MainView.routeName);
-        } else if (state is LoginFailure) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              backgroundColor: Colors.red,
-              content: Center(
-                  child: Text(
-                state.errorMessage,
-                style: TextStyle(color: Colors.white, fontSize: 16),
-              )),
-            ),
-          );
-        }
-      },
-      builder: (context, state) {
-        return ModalProgressHUD(
-            inAsyncCall: state is LoginLoading ? true : false,
-            child: LoginViewBody());
-      },
-    );
+    return LoginViewBody();
   }
 }

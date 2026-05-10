@@ -32,4 +32,14 @@ class LoginCubit extends Cubit<LoginState> {
     return result.fold((failure) => emit(LoginFailure(failure.message)),
             (userEntity) => emit(LoginSuccess()));
   }
+
+  Future<void>sendPasswordResetEmail({required String email})async{
+    emit(ResetPasswordLoading());
+    var result =await  authRepo.sendPasswordResetEmail(email: email);
+    return result.fold((error){
+        emit(ResetPasswordFailure(error.message));
+    }, (success){
+      return emit(ResetPasswordSuccess());
+    });
+  }
 }

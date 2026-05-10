@@ -28,6 +28,7 @@ class Assets {
   static const String helperFunctionsBuildShowSnackBar = 'lib/core/helper_functions/build_show_snack_bar.dart';
   static const String helperFunctionsGetAverageRating = 'lib/core/helper_functions/get_average_rating.dart';
   static const String helperFunctionsGetDummyProducts = 'lib/core/helper_functions/get_dummy_products.dart';
+  static const String helperFunctionsHandleAuthException = 'lib/core/helper_functions/handle_auth_exception.dart';
   static const String helperFunctionsOnGenerateRoute = 'lib/core/helper_functions/on_generate_route.dart';
   static const String iconsAddIcon = 'assets/icons/add_icon.svg';
   static const String iconsAppIcon = 'assets/icons/app_icon.png';
@@ -132,6 +133,8 @@ class Assets {
   static const String widgetsCustomProductAppBar = 'lib/features/home/presentation/views/widgets/custom_product_app_bar.dart';
   static const String widgetsCustomText = 'lib/core/widgets/custom_text.dart';
   static const String widgetsCustomTextFormField = 'lib/features/auth/presentation/views/widgets/custom_text_form_field.dart';
+  static const String widgetsDontHaveAccount = 'lib/features/auth/presentation/views/widgets/dont_have_account.dart';
+  static const String widgetsForgetPasswordWidget = 'lib/features/auth/presentation/views/widgets/forget_password_widget.dart';
   static const String widgetsFruitItem = 'lib/features/home/presentation/views/widgets/fruit_item.dart';
   static const String widgetsHomeFeaturedItem = 'lib/features/home/presentation/views/widgets/home_featured_item.dart';
   static const String widgetsHomeFeaturedList = 'lib/features/home/presentation/views/widgets/home_featured_list.dart';

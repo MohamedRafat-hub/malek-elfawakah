@@ -12,3 +12,12 @@ final class LoginFailure extends LoginState {
   LoginFailure(this.errorMessage);
 }
 
+
+
+class ResetPasswordLoading extends LoginState {}
+class ResetPasswordSuccess extends LoginState {}
+class ResetPasswordFailure extends LoginState {
+  final String errorMessage;
+
+  ResetPasswordFailure(this.errorMessage);
+}

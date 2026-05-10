@@ -21,7 +21,7 @@ class CustomTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       obscureText: obscureText,
-      onSaved: onSaved,
+      onChanged: onSaved,
       validator: (value) {
         if (value == null || value.isEmpty) {
           return 'هذا الحقل مطلوب';

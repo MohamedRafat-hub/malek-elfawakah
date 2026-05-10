@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:fruit_hub/core/widgets/custom_text.dart';
 
 class SocialLoginButton extends StatelessWidget {
   const SocialLoginButton({super.key , required this.title , required this.icon ,  this.onPressed});

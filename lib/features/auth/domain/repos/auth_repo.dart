@@ -18,4 +18,6 @@ abstract class AuthRepo {
  Future<bool> checkIfDataExist({required String path , required String documentId});
 
   Future<UserEntity> getUserData({required String uid});
+
+  Future<Either<Failure , void>>sendPasswordResetEmail({required String email});
 }

@@ -99,4 +99,8 @@ class FirebaseAuthService {
   bool isLoggedIn() {
     return FirebaseAuth.instance.currentUser !=null;
   }
+
+  Future<void>sendPasswordResetEmail({required String email}){
+    return FirebaseAuth.instance.sendPasswordResetEmail(email: email.trim());
+  }
 }

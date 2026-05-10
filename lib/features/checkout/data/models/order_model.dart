@@ -30,8 +30,10 @@ class OrderModel {
 
   Map<String, dynamic> toJson() {
     return {
+      'status':"pending",
       'totalPrice': totalPrice,
       'uid': uid,
+      'date':DateTime.now().toString(),
       'paymentMethod': paymentMethod,
       'shippingAddressModel': shippingAddressModel.toJson(),
       'orderProducts': orderProducts.map((e) => e.toJson()).toList(),

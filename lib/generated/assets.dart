@@ -92,7 +92,7 @@ class Assets {
   static const String servicesFirestoreService = 'lib/core/services/firestore_service.dart';
   static const String servicesGitItService = 'lib/core/services/git_it_service.dart';
   static const String servicesSharedPrefrencesSingelton = 'lib/core/services/shared_prefrences_singelton.dart';
-  static const String servicesStorageServicec = 'lib/core/services/storage_service.dart';
+  static const String servicesStorageService = 'lib/core/services/storage_service.dart';
   static const String signoutCubitSignOutCubit = 'lib/features/auth/presentation/cubits/signoutCubit/sign_out_cubit.dart';
   static const String signoutCubitSignOutState = 'lib/features/auth/presentation/cubits/signoutCubit/sign_out_state.dart';
   static const String signupCubitSignupCubit = 'lib/features/auth/presentation/cubits/signup_cubit/signup_cubit.dart';
@@ -164,10 +164,12 @@ class Assets {
   static const String widgetsShippingItem = 'lib/features/checkout/presentation/views/widgets/shipping_item.dart';
   static const String widgetsShippingSection = 'lib/features/checkout/presentation/views/widgets/shipping_section.dart';
   static const String widgetsShoppingButton = 'lib/features/home/presentation/views/widgets/shopping_button.dart';
+  static const String widgetsSignoutButton = 'lib/features/auth/presentation/views/widgets/signout_button.dart';
   static const String widgetsSignupViewBody = 'lib/features/auth/presentation/views/widgets/signup_view_body.dart';
   static const String widgetsSignupViewBodyBlocConsumer = 'lib/features/auth/presentation/views/widgets/signup_view_body_bloc_consumer.dart';
   static const String widgetsSocialLoginButton = 'lib/features/auth/presentation/views/widgets/social_login_button.dart';
   static const String widgetsSplashViewBody = 'lib/features/splash/presentation/views/widgets/splash_view_body.dart';
   static const String widgetsStepItem = 'lib/features/checkout/presentation/views/widgets/step_item.dart';
+  static const String widgetsUserData = 'lib/features/auth/presentation/views/widgets/user_data.dart';
 
 }

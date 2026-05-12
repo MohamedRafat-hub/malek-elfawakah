@@ -37,7 +37,11 @@ class _HomeViewBodyState extends State<HomeViewBody> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomAppbarWidget(),
-                SearchTextField(),
+                SearchTextField(
+                  onChanged: (value) {
+                    context.read<ProductsCubit>().searchProduct(value);
+                  },
+                ),
                 Gap(6),
                 SizedBox(height: 180, child: HomeFeaturedList()),
                 GestureDetector(
@@ -56,8 +60,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                               color: Color(0xFF949D9E),
                               fontSize: 20,
                               fontFamily: 'Cairo',
-                              fontWeight: FontWeight.w700
-                          ),
+                              fontWeight: FontWeight.w700),
                         ),
                       ),
                     ],
@@ -73,4 +76,3 @@ class _HomeViewBodyState extends State<HomeViewBody> {
     );
   }
 }
-

@@ -29,8 +29,15 @@ class _MainViewState extends State<MainView> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => CartCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<CartCubit>(
+          create: (context) => CartCubit(),
+        ),
+        BlocProvider(create: (context) => GetProfileDataCubit(
+            fireStoreService: getIt.get<DatabaseService>())
+          ..getProfileData(uid: FirebaseAuth.instance.currentUser!.uid)),
+      ],
       child: Scaffold(
         body: BlocListener<CartCubit, CartState>(
           listener: (context, state) {
@@ -47,12 +54,7 @@ class _MainViewState extends State<MainView> {
               HomeView(),
               ProductsView(),
               CartView(),
-              BlocProvider(
-                create: (context) => GetProfileDataCubit(
-                    fireStoreService: getIt.get<DatabaseService>())
-                  ..getProfileData(uid: FirebaseAuth.instance.currentUser!.uid),
-                child: ProfileView(),
-              ),
+              ProfileView(),
             ],
           ),
         ),

@@ -4,8 +4,8 @@ import 'package:flutter_svg/svg.dart';
 import '../../../../../core/utils/app_colors.dart';
 
 class SearchTextField extends StatelessWidget {
-  const SearchTextField({super.key});
-
+  const SearchTextField({super.key, this.onChanged});
+  final void Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,6 +14,7 @@ class SearchTextField extends StatelessWidget {
         elevation: 5,
         borderRadius: BorderRadius.circular(8),
         child: TextField(
+          onChanged: onChanged,
           decoration: InputDecoration(
             hintText: 'ابحث عن.......',
             prefixIcon: SizedBox(

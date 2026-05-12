@@ -83,6 +83,8 @@ class Assets {
   static const String reposAddOrderRepoImpl = 'lib/features/checkout/data/repos/add_order_repo_impl.dart';
   static const String reposAuthRepo = 'lib/features/auth/domain/repos/auth_repo.dart';
   static const String reposAuthRepoImpl = 'lib/features/auth/data/repos/auth_repo_impl.dart';
+  static const String reposImageRepo = 'lib/features/auth/domain/repos/image_repo.dart';
+  static const String reposImageRepoImpl = 'lib/features/auth/data/repos/image_repo_impl.dart';
   static const String reposProductRepo = 'lib/core/repos/product_repo.dart';
   static const String reposProductRepoImpl = 'lib/core/repos/product_repo_impl.dart';
   static const String servicesCloudinaryStorage = 'lib/core/services/cloudinary_storage.dart';
@@ -97,6 +99,8 @@ class Assets {
   static const String signoutCubitSignOutState = 'lib/features/auth/presentation/cubits/signoutCubit/sign_out_state.dart';
   static const String signupCubitSignupCubit = 'lib/features/auth/presentation/cubits/signup_cubit/signup_cubit.dart';
   static const String signupCubitSignupState = 'lib/features/auth/presentation/cubits/signup_cubit/signup_state.dart';
+  static const String uploadImageCubitUploadImageCubit = 'lib/features/auth/presentation/cubits/uploadImageCubit/upload_image_cubit.dart';
+  static const String uploadImageCubitUploadImageState = 'lib/features/auth/presentation/cubits/uploadImageCubit/upload_image_state.dart';
   static const String utilsAppColors = 'lib/core/utils/app_colors.dart';
   static const String utilsAppDecoration = 'lib/core/utils/app_decoration.dart';
   static const String utilsBackendEndpoint = 'lib/core/utils/backend_endpoint.dart';

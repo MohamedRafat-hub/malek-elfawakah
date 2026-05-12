@@ -58,6 +58,7 @@ dependencies:
   provider: ^6.1.5+1
   flutter_paypal_payment: ^1.0.8
   http: ^1.6.0
+  image_picker: ^1.2.2
 
 
 

@@ -2,21 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/services/git_it_service.dart';
 import 'package:fruit_hub/features/auth/domain/repos/auth_repo.dart';
+import 'package:fruit_hub/features/auth/domain/repos/image_repo.dart';
 import 'package:fruit_hub/features/auth/presentation/cubits/signoutCubit/sign_out_cubit.dart';
+import 'package:fruit_hub/features/auth/presentation/cubits/uploadImageCubit/upload_image_cubit.dart';
 import 'package:fruit_hub/features/auth/presentation/views/widgets/build_app_bar.dart';
 import 'package:fruit_hub/features/auth/presentation/views/widgets/signout_button.dart';
 import 'package:fruit_hub/features/auth/presentation/views/widgets/user_data.dart';
 import 'package:gap/gap.dart';
 
-import 'login_view.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => SignOutCubit(authRepo: getIt.get<AuthRepo>()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<SignOutCubit>(
+          create: (context) => SignOutCubit(authRepo: getIt.get<AuthRepo>()),
+        ),
+        BlocProvider<UploadImageCubit>(
+            create: (context) =>
+                UploadImageCubit(imageRepo: getIt.get<ImageRepo>()))
+      ],
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: buildAppBar(title: 'حسابي'),
@@ -43,7 +51,6 @@ class ProfileView extends StatelessWidget {
             _buildListTile(Icons.language, 'اللغة',
                 trailingText: 'العربية', hasNavigation: true),
             _buildSwitchTile(Icons.edit_road_outlined, 'الوضع', false),
-
 
             const SizedBox(height: 20),
 
@@ -96,6 +103,3 @@ class ProfileView extends StatelessWidget {
     );
   }
 }
-
-
-

@@ -1,33 +1,69 @@
 import 'dart:developer' show log;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruit_hub/core/helper_functions/build_show_snack_bar.dart';
+import 'package:fruit_hub/features/auth/presentation/cubits/uploadImageCubit/upload_image_cubit.dart';
 import 'package:gap/gap.dart';
+import 'package:image_picker/image_picker.dart';
 
 class UserData extends StatelessWidget {
   const UserData({super.key});
 
+  Future<void> _pickAndUploadImage(BuildContext context) async {
+    final picker = ImagePicker();
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      final fileName = pickedFile.name;
+      final path = pickedFile.path;
+
+      if (context.mounted) {
+        context
+            .read<UploadImageCubit>()
+            .uploadImage(path: path, fileName: fileName);
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        GestureDetector(
-          onTap: (){},
-          child: Stack(
-            alignment: Alignment.bottomLeft,
-            children: [
-              CircleAvatar(
-                radius: 45,
-                backgroundImage: NetworkImage('https://via.placeholder.com/150'), // حط صورتك هنا
+        BlocConsumer<UploadImageCubit, UploadImageState>(
+          listener: (context, state) {
+            if(state is UploadImageFailure)
+              {
+                log("error is ${state.errorMessage}");
+                showSnackBar(context, message: state.errorMessage, color: Colors.red);
+              }
+            else if(state is UploadImageSuccess)
+              {
+                showSnackBar(context, message:'تم رفع الصورة بنجاح ✅');
+              }
+          },
+          builder: (context, state) {
+            return GestureDetector(
+              onTap: () {
+                _pickAndUploadImage(context);
+              },
+              child: Stack(
+                alignment: Alignment.bottomLeft,
+                children: [
+                  CircleAvatar(
+                    radius: 45,
+                    backgroundImage: NetworkImage(
+                        'https://via.placeholder.com/150'), // حط صورتك هنا
+                  ),
+                  CircleAvatar(
+                    radius: 15,
+                    backgroundColor: Colors.white,
+                    child: Icon(Icons.camera_alt_outlined,
+                        size: 18, color: Colors.green[700]),
+                  ),
+                ],
               ),
-              CircleAvatar(
-                radius: 15,
-                backgroundColor: Colors.white,
-                child: Icon(Icons.camera_alt_outlined,
-                    size: 18, color: Colors.green[700]),
-              ),
-            ],
-          ),
+            );
+          },
         ),
         Gap(10),
         Column(

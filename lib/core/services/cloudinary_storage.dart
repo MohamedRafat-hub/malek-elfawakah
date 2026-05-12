@@ -5,7 +5,7 @@ import 'package:fruit_hub/core/services/storage_service.dart';
 
 class CloudinaryStorage extends StorageService {
   final String _cloudName = 'dnkpgqa83';
-  final String _uploadPreset = 'images';
+  final String _uploadPreset = 'userImages';
 
   @override
   Future<String> uploadImage(String path, String fileName) async {

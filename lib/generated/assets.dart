@@ -85,6 +85,8 @@ class Assets {
   static const String reposAddOrderRepoImpl = 'lib/features/checkout/data/repos/add_order_repo_impl.dart';
   static const String reposAuthRepo = 'lib/features/auth/domain/repos/auth_repo.dart';
   static const String reposAuthRepoImpl = 'lib/features/auth/data/repos/auth_repo_impl.dart';
+  static const String reposFavouriteRepo = 'lib/features/home/domain/repos/favourite_repo.dart';
+  static const String reposFavouriteRepoImpl = 'lib/features/home/data/repos/favourite_repo_impl.dart';
   static const String reposImageRepo = 'lib/features/auth/domain/repos/image_repo.dart';
   static const String reposImageRepoImpl = 'lib/features/auth/data/repos/image_repo_impl.dart';
   static const String reposProductRepo = 'lib/core/repos/product_repo.dart';

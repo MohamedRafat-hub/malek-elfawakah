@@ -5,13 +5,14 @@ class OrderEntity {
   final String uid;
   final CartEntity cartEntity;
   bool? payWithCache;
-  // final String orderNumber;
   ShippingAddressEntity shippingAddress;
+  final String date;
+  final int? orderNumber;
 
   OrderEntity(
       {this.payWithCache,
        required this.shippingAddress,
-      required this.cartEntity, required this.uid });
+      required this.cartEntity, required this.uid, required this.date, this.orderNumber });
 
 
   int calculateShippingDiscount()

@@ -28,18 +28,21 @@ class AddOrderRepoImpl implements AddOrderRepo {
   }
 
   @override
-  Future<Either<Failure, List<OrderEntity>>> getOrders({required String userId})async {
+  Future<Either<Failure, List<OrderModel>>> getOrders({required String userId})async {
     try {
           final data = await databaseService.getData(
             path: BackendEndpoint.orders,
             query: {
-              'where': {'field': 'userId', 'value': userId},
+              'where': {'field': 'uid', 'value': userId},
               'orderBy': 'orderNumber',
               'descending': true,
             },
-          );
+          )as List;
 
-          final orders = data.map((e) => OrderModel.fromJson(e)).toList();
+          final orders = data
+              .map((e) => OrderModel.fromJson(e as Map<String, dynamic>))
+              .toList();
+
           return right(orders);
         } catch (e) {
           return left(ServerFailure(e.toString()));

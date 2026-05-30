@@ -10,6 +10,7 @@ import 'package:fruit_hub/features/checkout/presentation/views/widgets/add_order
 import 'package:fruit_hub/features/checkout/presentation/views/widgets/checkout_app_bar.dart';
 import 'package:fruit_hub/features/checkout/presentation/views/widgets/checkout_view_body.dart';
 import 'package:fruit_hub/features/home/domain/entities/cart_entity.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 class CheckoutView extends StatefulWidget {
@@ -31,6 +32,7 @@ class _CheckoutViewState extends State<CheckoutView> {
   @override
   void initState() {
     orderEntity = OrderEntity(
+      date:  DateFormat('d MMMM ,yyyy', 'ar').format(DateTime.now()),
         uid: FirebaseAuth.instance.currentUser!.uid,
         cartEntity: widget.cartEntity,
         shippingAddress: ShippingAddressEntity());

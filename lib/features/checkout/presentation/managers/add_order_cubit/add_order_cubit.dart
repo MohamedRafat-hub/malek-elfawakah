@@ -21,6 +21,6 @@ class AddOrderCubit extends Cubit<AddOrderState> {
     emit(GetOrdersLoading());
     var result = await addOrderRepo.getOrders(userId: userId);
     result.fold((error) => emit(GetOrdersFailure(errorMessage: error.message)),
-        (orders) => (emit(GetOrdersSuccess(orders: orders))));
+        (orders) => (emit(GetOrdersSuccess(orders: orders as List<OrderEntity>))));
   }
 }

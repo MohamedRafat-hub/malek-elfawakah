@@ -66,6 +66,7 @@ class Assets {
   static const String imagesSplashedBottom = 'assets/images/splashed_bottom.svg';
   static const String imagesWatermelon = 'assets/images/watermelon.png';
   static const String imagesWatermelon1x = 'assets/images/watermelon1x.png';
+
   static const String intlMessagesAll = 'lib/generated/intl/messages_all.dart';
   static const String intlMessagesAr = 'lib/generated/intl/messages_ar.dart';
   static const String intlMessagesEn = 'lib/generated/intl/messages_en.dart';
@@ -161,6 +162,7 @@ class Assets {
   static const String widgetsFavoriteProductsViewBody = 'lib/features/home/presentation/views/widgets/favorite_products_view_body.dart';
   static const String widgetsForgetPasswordWidget = 'lib/features/auth/presentation/views/widgets/forget_password_widget.dart';
   static const String widgetsFruitItem = 'lib/features/home/presentation/views/widgets/fruit_item.dart';
+  static const String widgetsGetOrderCard = 'lib/features/checkout/presentation/views/widgets/get_order_card.dart';
   static const String widgetsHomeFeaturedItem = 'lib/features/home/presentation/views/widgets/home_featured_item.dart';
   static const String widgetsHomeFeaturedList = 'lib/features/home/presentation/views/widgets/home_featured_list.dart';
   static const String widgetsHomeViewBody = 'lib/features/home/presentation/views/widgets/home_view_body.dart';

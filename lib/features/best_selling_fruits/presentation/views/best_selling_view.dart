@@ -5,6 +5,8 @@ import 'package:fruit_hub/core/repos/product_repo.dart';
 import 'package:fruit_hub/core/services/git_it_service.dart';
 import 'package:fruit_hub/features/best_selling_fruits/presentation/views/widgets/best_seller_title.dart';
 import 'package:fruit_hub/features/best_selling_fruits/presentation/views/widgets/best_selling_view_body.dart';
+import 'package:fruit_hub/features/home/domain/repos/favourite_repo.dart';
+import 'package:fruit_hub/features/home/presentation/managers/favouriteCubit/favourite_cubit.dart';
 import 'package:fruit_hub/features/home/presentation/views/widgets/custom_notification_widget.dart';
 
 class BestSellingView extends StatelessWidget {
@@ -14,11 +16,15 @@ class BestSellingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ProductsCubit(
-        getIt.get<ProductRepo>(),
-      ),
-
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => ProductsCubit(getIt.get<ProductRepo>()),
+        ),
+        BlocProvider(
+            create: (context) =>
+                FavouriteCubit(favouriteRepo: getIt.get<FavouriteRepo>())),
+      ],
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -32,7 +38,6 @@ class BestSellingView extends StatelessWidget {
           ],
           leading: BackButton(),
         ),
-
         body: const BestSellingViewBody(),
       ),
     );

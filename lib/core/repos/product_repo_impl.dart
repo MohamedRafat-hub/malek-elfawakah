@@ -14,11 +14,11 @@ class ProductRepoImpl implements ProductRepo {
   ProductRepoImpl(this.databaseService);
 
   @override
-  Future<Either<Failure, List<ProductEntity>>> getBestSellingProducts() async {
+  Future<Either<Failure, List<ProductEntity>>> getBestSellingProducts({required int limit}) async {
     try {
       List<Map<String, dynamic>> data =
           await databaseService.getData(path: BackendEndpoint.products , query: {
-            'limit' : 10 ,
+            'limit' : limit ,
             'orderBy' : 'sellingCount',
             'descending' : true
           });

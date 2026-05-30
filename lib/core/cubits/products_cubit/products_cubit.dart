@@ -12,9 +12,9 @@ class ProductsCubit extends Cubit<ProductsState> {
   int productsLength = 0;
   List<ProductEntity> allProducts = [];
 
-  Future<void> getBestSellingProducts() async {
+  Future<void> getBestSellingProducts(int limit) async {
     emit(ProductsLoading());
-    var result = await productRepo.getBestSellingProducts();
+    var result = await productRepo.getBestSellingProducts( limit: limit);
     result.fold((failure) {
       emit(ProductsFailure(failure.message));
     }, (products) {

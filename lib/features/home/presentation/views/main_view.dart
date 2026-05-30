@@ -84,7 +84,7 @@ class _MainViewBodyState extends State<MainViewBody> {
           ),
         ),
 
-        BlocProvider(
+        BlocProvider<FavouriteCubit>(
           create: (context) => FavouriteCubit(
             favouriteRepo: getIt.get<FavouriteRepo>(),
           ),

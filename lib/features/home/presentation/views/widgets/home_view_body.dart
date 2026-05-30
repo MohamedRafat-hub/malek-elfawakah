@@ -24,7 +24,7 @@ class HomeViewBody extends StatefulWidget {
 class _HomeViewBodyState extends State<HomeViewBody> {
   @override
   void initState() {
-    context.read<ProductsCubit>().getBestSellingProducts();
+    context.read<ProductsCubit>().getBestSellingProducts(10);
     context.read<FavouriteCubit>().getFavouriteProducts();
     super.initState();
   }
@@ -49,6 +49,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                 SizedBox(height: 180, child: HomeFeaturedList()),
                 GestureDetector(
                   onTap: () {
+
                     Navigator.pushNamed(context, BestSellingView.routeName);
                   },
                   child: Row(

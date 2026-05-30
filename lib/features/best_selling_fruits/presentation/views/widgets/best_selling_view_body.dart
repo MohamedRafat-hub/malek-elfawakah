@@ -19,7 +19,7 @@ class _BestSellingViewBodyState
     super.initState();
 
     context.read<ProductsCubit>()
-        .getBestSellingProducts();
+        .getBestSellingProducts(16);
   }
 
   @override

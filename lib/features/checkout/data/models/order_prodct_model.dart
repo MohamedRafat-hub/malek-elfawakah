@@ -32,4 +32,13 @@ class OrderProductModel {
         name: entity.productEntity.name);
   }
 
+  factory OrderProductModel.fromJson(Map<String, dynamic> json) {
+    return OrderProductModel(
+      code: json['code'],
+      price: json['price'],
+      quantity: json['quantity'],
+      imageUrl: json['imageUrl'],
+      name: json['name'],
+    );
+  }
 }

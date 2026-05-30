@@ -4,4 +4,5 @@ import 'package:fruit_hub/features/checkout/domain/entities/order_entity.dart';
 
 abstract class AddOrderRepo {
   Future<Either<Failure , void>>addOrder({required OrderEntity orderEntity });
+  Future<Either<Failure , List<OrderEntity>>> getOrders({required String userId});
 }

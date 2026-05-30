@@ -10,10 +10,17 @@ class AddOrderCubit extends Cubit<AddOrderState> {
   AddOrderCubit(this.addOrderRepo) : super(AddOrderInitial());
   final AddOrderRepo addOrderRepo;
 
-  addOrder({required OrderEntity orderEntity}) async {
+  Future<void> addOrder({required OrderEntity orderEntity}) async {
     emit(AddOrderLoading());
     var result = await addOrderRepo.addOrder(orderEntity: orderEntity);
     result.fold((error) => emit(AddOrderFailure(errorMessage: error.message)),
         (success) => (emit(AddOrderSuccess())));
+  }
+
+  Future<void > getOrders({required String userId}) async {
+    emit(GetOrdersLoading());
+    var result = await addOrderRepo.getOrders(userId: userId);
+    result.fold((error) => emit(GetOrdersFailure(errorMessage: error.message)),
+        (orders) => (emit(GetOrdersSuccess(orders: orders))));
   }
 }

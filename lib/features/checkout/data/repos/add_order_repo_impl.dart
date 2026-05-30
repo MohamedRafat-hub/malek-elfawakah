@@ -26,4 +26,23 @@ class AddOrderRepoImpl implements AddOrderRepo {
       return left(ServerFailure(e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, List<OrderEntity>>> getOrders({required String userId})async {
+    try {
+          final data = await databaseService.getData(
+            path: BackendEndpoint.orders,
+            query: {
+              'where': {'field': 'userId', 'value': userId},
+              'orderBy': 'orderNumber',
+              'descending': true,
+            },
+          );
+
+          final orders = data.map((e) => OrderModel.fromJson(e)).toList();
+          return right(orders);
+        } catch (e) {
+          return left(ServerFailure(e.toString()));
+        }
+  }
 }

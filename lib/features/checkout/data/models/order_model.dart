@@ -42,4 +42,17 @@ class OrderModel {
       'orderProducts': orderProducts.map((e) => e.toJson()).toList(),
     };
   }
+
+  factory OrderModel.fromJson(Map<String, dynamic> json) {
+    return OrderModel(
+      orderNumber: json['orderNumber'],
+        totalPrice: json['totalPrice'],
+        uid: json['uid'],
+        paymentMethod: json['paymentMethod'],
+        shippingAddressModel:
+        ShippingAddressModel.fromJson(json['shippingAddressModel']),
+        orderProducts: (json['orderProducts'] as List)
+            .map((e) => OrderProductModel.fromJson(e))
+            .toList());
+  }
 }

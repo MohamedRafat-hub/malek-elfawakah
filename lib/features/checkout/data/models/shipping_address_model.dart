@@ -29,4 +29,13 @@ class ShippingAddressModel {
       'phoneNumber': phoneNumber,
     };
   }
+
+  factory ShippingAddressModel.fromJson(Map<String, dynamic> json) {
+    return ShippingAddressModel(
+      name: json['name'],
+      address: json['address'],
+      city: json['city'],
+      phoneNumber: json['phoneNumber'],
+    );
+  }
 }

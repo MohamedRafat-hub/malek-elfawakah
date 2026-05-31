@@ -42,4 +42,16 @@ class LoginCubit extends Cubit<LoginState> {
       return emit(ResetPasswordSuccess());
     });
   }
+
+
+  Future<void> loginWithApple() async {
+    emit(LoginLoading());
+
+    var result = await authRepo.loginWithApple();
+
+    result.fold(
+          (failure) => emit(LoginFailure(failure.message)),
+          (_) => emit(LoginSuccess()),
+    );
+  }
 }

@@ -59,6 +59,7 @@ dependencies:
   flutter_paypal_payment: ^1.0.8
   http: ^1.6.0
   image_picker: ^1.2.2
+  sign_in_with_apple: ^8.0.0
 
 
 

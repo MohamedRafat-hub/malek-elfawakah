@@ -13,6 +13,8 @@ abstract class AuthRepo {
 
   Future<Either<Failure, UserEntity>> loginWithFacebook();
 
+  Future<Either<Failure , UserEntity>> loginWithApple();
+
   Future<void> addUserData({required UserEntity user});
 
   Future<bool> checkIfDataExist(

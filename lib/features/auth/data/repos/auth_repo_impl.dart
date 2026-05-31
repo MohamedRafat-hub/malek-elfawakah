@@ -191,4 +191,44 @@ class AuthRepoImpl extends AuthRepo {
       return left(ServerFailure('حدث خطأ غير معروف، يرجى المحاولة مرة أخرى لاحقاً.'));
     }
   }
+
+  @override
+  Future<Either<Failure, UserEntity>> loginWithApple() async {
+    User? user;
+
+    try {
+      user = await firebaseAuthService.signInWithApple();
+
+      if (user == null) {
+        return left(ServerFailure('تم إلغاء تسجيل الدخول'));
+      }
+
+      bool exist = await checkIfDataExist(
+        path: BackendEndpoint.getUserData,
+        documentId: user.uid,
+      );
+
+      late UserEntity userEntity;
+
+      if (exist) {
+        userEntity = await getUserData(uid: user.uid);
+      } else {
+        userEntity = UserModel.fromUserFirebase(user);
+        await addUserData(user: userEntity);
+      }
+
+      log(user.displayName ?? '');
+
+      return right(userEntity);
+    } on CustomExceptions catch (e) {
+      return left(ServerFailure(e.errorMessage));
+    } catch (e) {
+      if (user != null) {
+        await firebaseAuthService.deleteUser();
+      }
+
+      log('apple login error ${e.toString()}');
+      return left(ServerFailure(e.toString()));
+    }
+  }
 }

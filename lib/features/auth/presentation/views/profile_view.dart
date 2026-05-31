@@ -74,6 +74,9 @@ class _ProfileViewState extends State<ProfileView> {
                 title: 'الوضع',
                 value: darkModeEnabled,
                 onChanged: (value) {
+                  setState(() {
+                    darkModeEnabled = value;
+                  });
                   context.read<ThemeCubit>().toggleTheme();
                 }),
 

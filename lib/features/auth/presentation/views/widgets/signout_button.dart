@@ -23,9 +23,11 @@ class SignOutButton extends StatelessWidget {
       },
       builder: (context, state) {
         return state is SignOutLoading
-            ? CircularProgressIndicator(
-          color: AppColors.primaryColor,
-        )
+            ? Center(
+              child: CircularProgressIndicator(
+                        color: AppColors.primaryColor,
+                      ),
+            )
             : CustomMaterialButton(
           buttonName: 'تسجيل الخروج',
           onPressed: () => _showSignOutDialog(context),
@@ -69,7 +71,7 @@ class SignOutButton extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12)),
                   ),
-                  child: Text('لا أرغب', style: TextStyle(color: Colors.black , fontSize: 16)),
+                  child: Text('لا أرغب', style: TextStyle( fontSize: 16)),
                 ),
               ),
             ],

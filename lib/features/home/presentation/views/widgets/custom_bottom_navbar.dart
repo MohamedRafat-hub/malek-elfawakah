@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruit_hub/core/cubits/theme_cubit.dart';
 
 import '../main_view.dart';
 import 'bottom_navbar_item.dart';
@@ -21,8 +23,7 @@ class CustomBottomNavBar extends StatelessWidget {
       height: 70,
 
       decoration: ShapeDecoration(
-        color: Colors.white,
-
+        color: context.read<ThemeCubit>().state == ThemeMode.light ? Colors.white : const Color(0xFF1E1E1E),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(30),
@@ -32,7 +33,7 @@ class CustomBottomNavBar extends StatelessWidget {
 
         shadows: const [
           BoxShadow(
-            color: Color(0x19000000),
+            // color: Color(0x19000000),
             blurRadius: 25,
             offset: Offset(0, -2),
             spreadRadius: 0,

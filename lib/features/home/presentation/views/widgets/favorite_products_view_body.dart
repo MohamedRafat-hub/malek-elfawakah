@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruit_hub/core/utils/app_colors.dart';
 
 import '../../../../../core/cubits/products_cubit/products_cubit.dart';
 import '../../../../../core/entities/product_entity.dart';
@@ -50,6 +51,13 @@ class _FavouriteProductsViewBodyState extends State<FavouriteProductsViewBody> {
                   );
                 }
                 if (state is FavouriteSuccess) {
+                  state.favouriteProducts ??= []; // ✅ تأكد من أن القائمة ليست null
+                  if(state.favouriteProducts?.isEmpty ?? true)
+                    {
+                      return SliverToBoxAdapter(
+                        child: Center(child: Center(child: Text('لا توجد منتجات في المفضلة' , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.w600 , color: AppColors.primaryColor),))),
+                      );
+                    }
                   // ✅ فلتر مباشرة في الـ builder
                   final favouriteProducts = allProducts
                       .where((product) =>

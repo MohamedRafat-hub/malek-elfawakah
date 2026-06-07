@@ -61,7 +61,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                         child: Text(
                           'المزيد',
                           style: TextStyle(
-                              color: Color(0xFF949D9E),
+                              // color: Color(0xFF949D9E),
                               fontSize: 20,
                               fontFamily: 'Cairo',
                               fontWeight: FontWeight.w700),

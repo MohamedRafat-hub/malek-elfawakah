@@ -14,7 +14,8 @@ AppBar buildAppBar(
         text: title,
         fontSize: 20,
         fontWeight: FontWeight.w700,
-        color: const Color(0xFF0C0D0D)),
+        // color: const Color(0xFF0C0D0D)
+    ),
     backgroundColor: Colors.transparent,
     elevation: 0,
     leading: hasLeading!

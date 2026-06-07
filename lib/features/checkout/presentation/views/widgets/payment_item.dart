@@ -15,7 +15,7 @@ class PaymentItem extends StatelessWidget {
         Text(
           '$title :',
           style: TextStyle(
-            color: const Color(0xFF0C0D0D) /* Grayscale-950 */,
+            // color: const Color(0xFF0C0D0D) /* Grayscale-950 */,
             fontSize: 13,
             fontFamily: 'Cairo',
             fontWeight: FontWeight.w700,

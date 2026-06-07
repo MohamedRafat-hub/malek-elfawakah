@@ -16,7 +16,6 @@ class SocialLoginButton extends StatelessWidget {
           shape:  RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
             side: BorderSide(
-              color: Color(0xFFDDDFDF),
               width: 1,
             )
           )
@@ -29,7 +28,7 @@ class SocialLoginButton extends StatelessWidget {
           ),
           leading: SvgPicture.asset(icon),
           title: Text(title, style: TextStyle(
-            color: Color(0xFF0C0D0D),
+            // color: Color(0xFF0C0D0D),
             fontSize: 16,
             fontWeight: FontWeight.w600,
           ),

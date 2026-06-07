@@ -22,7 +22,7 @@ class ShippingItem extends StatelessWidget {
           ),
           clipBehavior: Clip.antiAlias,
           decoration:isSelected ? BoxDecoration(
-            color: Colors.white,
+            // color: Colors.white,
             borderRadius: BorderRadius.circular(4),
             border: Border.all(
               width: 1,
@@ -72,7 +72,7 @@ class ShippingItem extends StatelessWidget {
                   Text(
                     title,
                     style: TextStyle(
-                      color: Colors.black,
+                      // color: Colors.black,
                       fontSize: 13,
                       fontFamily: 'Cairo',
                       fontWeight: FontWeight.w600,
@@ -83,7 +83,7 @@ class ShippingItem extends StatelessWidget {
                     subTitle,
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                      color: Colors.black.withValues(alpha: 0.50),
+                      // color: Colors.black.withValues(alpha: 0.50),
                       fontSize: 13,
                       fontFamily: 'Cairo',
                       fontWeight: FontWeight.w400,

@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub/core/services/git_it_service.dart';
+import 'package:fruit_hub/core/utils/app_colors.dart';
 import 'package:fruit_hub/features/auth/presentation/views/widgets/build_app_bar.dart';
 import 'package:fruit_hub/features/checkout/domain/entities/order_entity.dart';
 import 'package:fruit_hub/features/checkout/domain/repos/add_order_repo.dart';
@@ -43,7 +44,6 @@ class LastOrdersViewBody extends StatelessWidget {
         else if(state is GetOrdersSuccess)
           {
             log('Get Orders Success: ${state.orders.length} orders retrieved');
-            log('total price is ${state.orders[0].calculateTotalPriceWithShipping()}');
           }
       },
       builder: (context, state) {
@@ -62,7 +62,7 @@ class LastOrdersViewBody extends StatelessWidget {
             log('Get Orders Success: ${state.orders.length} orders retrieved');
             if(state.orders.isEmpty)
               {
-                return const Center(child: Text('لا يوجد طلبات سابقة' , style: TextStyle(color: Colors.black , fontSize: 16 , fontWeight: FontWeight.w500),));
+                return  Center(child: Text('لا يوجد طلبات سابقة' , style: TextStyle(color: AppColors.primaryColor , fontSize: 20 , fontWeight: FontWeight.w600),));
               }
             return ListView.builder(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),

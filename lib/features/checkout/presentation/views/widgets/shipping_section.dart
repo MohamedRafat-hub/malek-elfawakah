@@ -37,7 +37,7 @@ class _ShippingSectionState extends State<ShippingSection> with AutomaticKeepAli
         Gap(10),
         ShippingItem(
           title: 'الدفع اونلاين',
-          subTitle: 'يرجى تحديد طريقة الدفع',
+          subTitle: 'التسليم من المكان',
           price: (context.read<OrderEntity>().cartEntity.calculateTotalPrice() + 0.0).toString(),
           isSelected: selectedIndex == 1,
           onTap: (){

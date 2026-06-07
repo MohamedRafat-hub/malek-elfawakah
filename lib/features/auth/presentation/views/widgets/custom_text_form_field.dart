@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../../core/cubits/theme_cubit.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
@@ -42,7 +45,7 @@ class CustomTextFormField extends StatelessWidget {
               fontSize: 13,
               fontWeight: FontWeight.w700),
           filled: true,
-          fillColor: Color(0xFFF9FAFA),
+          fillColor: context.read<ThemeCubit>().state == ThemeMode.dark ? Color(0xFF1C1C1C) : Colors.white,
           border: buildBorder(),
           enabledBorder: buildBorder()),
     );

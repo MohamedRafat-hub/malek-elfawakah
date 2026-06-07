@@ -13,7 +13,7 @@ class OrDivider extends StatelessWidget {
       spacing: 16,
       children: [
         Expanded(child: Divider()),
-        CustomText(text: 'أو', fontSize: 16, fontWeight: FontWeight.w600, color: Color(0xFF0C0D0D)),
+        CustomText(text: 'أو', fontSize: 16, fontWeight: FontWeight.w600),
         Expanded(child: Divider()),
       ],
     );

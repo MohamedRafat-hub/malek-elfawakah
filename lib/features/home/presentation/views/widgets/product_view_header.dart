@@ -24,7 +24,7 @@ class ProductsViewHeader extends StatelessWidget {
           '$productsLength  نتائج ',
           textAlign: TextAlign.right,
           style: TextStyle(
-            color: const Color(0xFF0C0D0D) /* Grayscale-950 */,
+            // color: const Color(0xFF0C0D0D) /* Grayscale-950 */,
             fontSize: 16,
             fontFamily: 'Cairo',
             fontWeight: FontWeight.w700,

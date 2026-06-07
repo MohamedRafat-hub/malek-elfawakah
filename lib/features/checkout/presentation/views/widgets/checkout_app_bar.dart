@@ -9,7 +9,7 @@ AppBar checkoutAppBar({required String title , void Function()? onPressed}) {
       onPressed: onPressed,
       icon: const Icon(
         Icons.arrow_back_ios,
-        color: Color(0xFF0C0D0D),
+        // color: Color(0xFF0C0D0D),
       ),
     ),
     centerTitle: true,
@@ -17,6 +17,7 @@ AppBar checkoutAppBar({required String title , void Function()? onPressed}) {
         text: title,
         fontSize: 20,
         fontWeight: FontWeight.w700,
-        color: const Color(0xFF0C0D0D)),
+        // color: const Color(0xFF0C0D0D)
+    ),
   );
 }

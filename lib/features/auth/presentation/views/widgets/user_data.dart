@@ -67,20 +67,51 @@ class UserData extends StatelessWidget {
                 return GestureDetector(
                   onTap: () => _pickAndUploadImage(context),
                   child: Stack(
-                    alignment: Alignment.bottomLeft,
+                    alignment: Alignment.bottomRight,
                     children: [
-                      CircleAvatar(
-                        radius: 45,
 
-                        backgroundImage: userEntity?.profileImage != null
-                            ? NetworkImage(userEntity!.profileImage!)
-                            : NetworkImage('https://via.placeholder.com/150'),
+                      Container(
+                        width: 80,
+                        height: 80,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.green[50],
+                          border: Border.all(color: Colors.green[100]!, width: 2),
+                        ),
+                        child: ClipOval(
+                          child: userEntity?.profileImage != null && userEntity!.profileImage!.isNotEmpty
+                              ? Image.network(
+                            userEntity!.profileImage!,
+                            fit: BoxFit.cover,
+                            errorBuilder: (context, error, stackTrace) => _buildDefaultAvatar(),
+                          )
+                              : _buildDefaultAvatar(),
+                        ),
                       ),
-                      CircleAvatar(
-                        radius: 15,
-                        backgroundColor: Colors.white,
-                        child: Icon(Icons.camera_alt_outlined,
-                            size: 18, color: Colors.green[700]),
+
+                      Positioned(
+                        bottom: 0,
+                        right: 0,
+                        child: Container(
+                          padding: const EdgeInsets.all(6),
+                          decoration: BoxDecoration(
+                            color: Colors.green[700],
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.white, width: 2.5),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.15),
+                                blurRadius: 4,
+                                offset: const Offset(0, 2),
+                              ),
+                            ],
+                          ),
+                          child: const Icon(
+                            Icons.camera_alt,
+                            size: 16,
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
                     ],
                   ),
@@ -103,6 +134,13 @@ class UserData extends StatelessWidget {
           ],
         );
       },
+    );
+  }
+  Widget _buildDefaultAvatar() {
+    return Icon(
+      Icons.person_rounded,
+      size: 50,
+      color: Colors.green[300],
     );
   }
 }

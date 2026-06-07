@@ -11,7 +11,7 @@ class BestSellerTitle extends StatelessWidget {
       'الأكثر مبيعًا',
       textAlign: TextAlign.center,
       style: TextStyle(
-        color: const Color(0xFF0C0D0D) /* Grayscale-950 */,
+        // color: const Color(0xFF0C0D0D) /* Grayscale-950 */,
         fontSize: 19,
         fontFamily: 'Cairo',
         fontWeight: FontWeight.w700,

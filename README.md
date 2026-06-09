@@ -98,23 +98,19 @@ This project follows **Clean Architecture** principles with a clear separation o
 ### Project Layers
 
 ```text
-Presentation Layer
+/
 │
-├── UI
-├── Cubits
-└── Widgets
-
-Domain Layer
+├── core/
 │
-├── Entities
-├── Use Cases
-└── Repository Contracts
-
-Data Layer
+├── features/
+│   ├── auth/
+│   ├── home/
+│   ├── cart/
+│   ├── checkout/
+│   ├── profile/
+│   └── ...
 │
-├── Models
-├── Data Sources
-└── Repository Implementations
+└── main.dart
 ```
 
 ### Benefits
